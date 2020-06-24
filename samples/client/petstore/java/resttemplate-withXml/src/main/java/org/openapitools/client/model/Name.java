@@ -35,25 +35,25 @@ import javax.xml.bind.annotation.*;
   Name.JSON_PROPERTY_PROPERTY,
   Name.JSON_PROPERTY_123NUMBER
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 @XmlRootElement(name = "Name")
 @XmlAccessorType(XmlAccessType.FIELD)
 @JacksonXmlRootElement(localName = "Name")
 public class Name {
-  @XmlElement(name = "name")
   public static final String JSON_PROPERTY_NAME = "name";
+  @XmlElement(name = "name")
   private Integer name;
 
-  @XmlElement(name = "snake_case")
   public static final String JSON_PROPERTY_SNAKE_CASE = "snake_case";
+  @XmlElement(name = "snake_case")
   private Integer snakeCase;
 
-  @XmlElement(name = "property")
   public static final String JSON_PROPERTY_PROPERTY = "property";
+  @XmlElement(name = "property")
   private String property;
 
-  @XmlElement(name = "123Number")
   public static final String JSON_PROPERTY_123NUMBER = "123Number";
+  @XmlElement(name = "123Number")
   private Integer _123number;
 
 
@@ -75,7 +75,6 @@ public class Name {
   public Integer getName() {
     return name;
   }
-
 
 
   public void setName(Integer name) {
@@ -119,7 +118,6 @@ public class Name {
   public String getProperty() {
     return property;
   }
-
 
 
   public void setProperty(String property) {

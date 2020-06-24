@@ -37,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   MixedPropertiesAndAdditionalPropertiesClass.JSON_PROPERTY_DATE_TIME,
   MixedPropertiesAndAdditionalPropertiesClass.JSON_PROPERTY_MAP
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MixedPropertiesAndAdditionalPropertiesClass {
   public static final String JSON_PROPERTY_UUID = "uuid";
   private UUID uuid;
@@ -69,7 +69,6 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
   }
 
 
-
   public void setUuid(UUID uuid) {
     this.uuid = uuid;
   }
@@ -93,7 +92,6 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
   public OffsetDateTime getDateTime() {
     return dateTime;
   }
-
 
 
   public void setDateTime(OffsetDateTime dateTime) {
@@ -127,7 +125,6 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
   public Map<String, Animal> getMap() {
     return map;
   }
-
 
 
   public void setMap(Map<String, Animal> map) {

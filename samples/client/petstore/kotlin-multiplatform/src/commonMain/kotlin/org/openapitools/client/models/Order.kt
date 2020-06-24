@@ -14,6 +14,7 @@ package org.openapitools.client.models
 
 import kotlinx.serialization.*
 import kotlinx.serialization.internal.CommonEnumSerializer
+
 /**
  * An order for a pets from the pet store
  * @param id 
@@ -32,10 +33,7 @@ data class Order (
     /* Order Status */
     @SerialName(value = "status") val status: Order.Status? = null,
     @SerialName(value = "complete") val complete: kotlin.Boolean? = null
-) 
-
-
-{
+) {
 
     /**
     * Order Status
@@ -43,16 +41,11 @@ data class Order (
     */
     @Serializable(with = Status.Serializer::class)
     enum class Status(val value: kotlin.String){
-    
         placed("placed"),
-    
         approved("approved"),
-    
         delivered("delivered");
-    
 
-        object Serializer : CommonEnumSerializer<Status>("Status", values(), values().map { it.value }.toTypedArray())
+        object Serializer : CommonEnumSerializer<Status>("Status", values(), values().map { it.value.toString() }.toTypedArray())
     }
-
 }
 

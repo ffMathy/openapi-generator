@@ -14,6 +14,7 @@ package org.openapitools.client.models
 
 import kotlinx.serialization.*
 import kotlinx.serialization.internal.CommonEnumSerializer
+
 /**
  * 
  * @param justSymbol 
@@ -21,10 +22,9 @@ import kotlinx.serialization.internal.CommonEnumSerializer
  */
 @Serializable
 data class EnumArrays (
-    @SerialName(value = "justSymbol") val justSymbol: EnumArrays.JustSymbol? = null,
-    @SerialName(value = "arrayEnum") val arrayEnum: kotlin.Array<EnumArrays.ArrayEnum>? = null
-)
-{
+    @SerialName(value = "just_symbol") val justSymbol: EnumArrays.JustSymbol? = null,
+    @SerialName(value = "array_enum") val arrayEnum: kotlin.collections.List<EnumArrays.ArrayEnum>? = null
+) {
 
     /**
     * 
@@ -32,29 +32,21 @@ data class EnumArrays (
     */
     @Serializable(with = JustSymbol.Serializer::class)
     enum class JustSymbol(val value: kotlin.String){
-    
         greaterThanEqual(">="),
-    
         dollar("$");
-    
 
-        object Serializer : CommonEnumSerializer<JustSymbol>("JustSymbol", values(), values().map { it.value }.toTypedArray())
+        object Serializer : CommonEnumSerializer<JustSymbol>("JustSymbol", values(), values().map { it.value.toString() }.toTypedArray())
     }
-
     /**
     * 
     * Values: fish,crab
     */
     @Serializable(with = ArrayEnum.Serializer::class)
     enum class ArrayEnum(val value: kotlin.String){
-    
         fish("fish"),
-    
         crab("crab");
-    
 
-        object Serializer : CommonEnumSerializer<ArrayEnum>("ArrayEnum", values(), values().map { it.value }.toTypedArray())
+        object Serializer : CommonEnumSerializer<ArrayEnum>("ArrayEnum", values(), values().map { it.value.toString() }.toTypedArray())
     }
-
 }
 

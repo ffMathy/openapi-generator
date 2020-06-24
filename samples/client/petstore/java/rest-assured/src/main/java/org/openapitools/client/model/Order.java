@@ -24,11 +24,14 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
+import org.hibernate.validator.constraints.*;
 
 /**
  * Order
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Order {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -122,7 +125,6 @@ public class Order {
   }
 
 
-
   public void setId(Long id) {
     this.id = id;
   }
@@ -144,7 +146,6 @@ public class Order {
   public Long getPetId() {
     return petId;
   }
-
 
 
   public void setPetId(Long petId) {
@@ -170,7 +171,6 @@ public class Order {
   }
 
 
-
   public void setQuantity(Integer quantity) {
     this.quantity = quantity;
   }
@@ -187,12 +187,12 @@ public class Order {
    * @return shipDate
   **/
   @javax.annotation.Nullable
+  @Valid
   @ApiModelProperty(value = "")
 
   public OffsetDateTime getShipDate() {
     return shipDate;
   }
-
 
 
   public void setShipDate(OffsetDateTime shipDate) {
@@ -218,7 +218,6 @@ public class Order {
   }
 
 
-
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
@@ -240,7 +239,6 @@ public class Order {
   public Boolean isComplete() {
     return complete;
   }
-
 
 
   public void setComplete(Boolean complete) {

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ReadOnlyFirst
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ReadOnlyFirst {
   public static final String SERIALIZED_NAME_BAR = "bar";
   @SerializedName(SERIALIZED_NAME_BAR)
@@ -68,7 +68,6 @@ public class ReadOnlyFirst {
   public String getBaz() {
     return baz;
   }
-
 
 
   public void setBaz(String baz) {

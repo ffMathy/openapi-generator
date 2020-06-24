@@ -30,7 +30,7 @@ import android.os.Parcel;
  * Model for testing model name starting with number
  */
 @ApiModel(description = "Model for testing model name starting with number")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Model200Response implements Parcelable {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -61,7 +61,6 @@ public class Model200Response implements Parcelable {
   }
 
 
-
   public void setName(Integer name) {
     this.name = name;
   }
@@ -83,7 +82,6 @@ public class Model200Response implements Parcelable {
   public String getPropertyClass() {
     return propertyClass;
   }
-
 
 
   public void setPropertyClass(String propertyClass) {

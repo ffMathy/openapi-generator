@@ -31,7 +31,7 @@ import javax.validation.Valid;
 @JsonPropertyOrder({
   DogAllOf.JSON_PROPERTY_BREED
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DogAllOf {
   public static final String JSON_PROPERTY_BREED = "breed";
   private String breed;
@@ -55,7 +55,6 @@ public class DogAllOf {
   public String getBreed() {
     return breed;
   }
-
 
 
   public void setBreed(String breed) {

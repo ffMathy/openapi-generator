@@ -14,12 +14,13 @@ package org.openapitools.client.models
 
 import kotlinx.serialization.*
 import kotlinx.serialization.internal.CommonEnumSerializer
+
 /**
  * 
  * @param dollarSpecialLeftSquareBracketPropertyPeriodNameRightSquareBracket 
  */
 @Serializable
 data class SpecialModelname (
-    @SerialName(value = "dollarSpecialLeftSquareBracketPropertyPeriodNameRightSquareBracket") val dollarSpecialLeftSquareBracketPropertyPeriodNameRightSquareBracket: kotlin.Long? = null
+    @SerialName(value = "\$special[property.name]") val dollarSpecialLeftSquareBracketPropertyPeriodNameRightSquareBracket: kotlin.Long? = null
 )
 

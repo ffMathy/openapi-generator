@@ -31,7 +31,7 @@ import android.os.Parcel;
 /**
  * FileSchemaTestClass
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FileSchemaTestClass implements Parcelable {
   public static final String SERIALIZED_NAME_FILE = "file";
   @SerializedName(SERIALIZED_NAME_FILE)
@@ -60,7 +60,6 @@ public class FileSchemaTestClass implements Parcelable {
   public java.io.File getFile() {
     return file;
   }
-
 
 
   public void setFile(java.io.File file) {
@@ -92,7 +91,6 @@ public class FileSchemaTestClass implements Parcelable {
   public List<java.io.File> getFiles() {
     return files;
   }
-
 
 
   public void setFiles(List<java.io.File> files) {

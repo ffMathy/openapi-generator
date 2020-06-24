@@ -36,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   User.JSON_PROPERTY_PHONE,
   User.JSON_PROPERTY_USER_STATUS
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class User {
   public static final String JSON_PROPERTY_ID = "id";
   private Long id;
@@ -83,7 +83,6 @@ public class User {
   }
 
 
-
   public void setId(Long id) {
     this.id = id;
   }
@@ -107,7 +106,6 @@ public class User {
   public String getUsername() {
     return username;
   }
-
 
 
   public void setUsername(String username) {
@@ -135,7 +133,6 @@ public class User {
   }
 
 
-
   public void setFirstName(String firstName) {
     this.firstName = firstName;
   }
@@ -159,7 +156,6 @@ public class User {
   public String getLastName() {
     return lastName;
   }
-
 
 
   public void setLastName(String lastName) {
@@ -187,7 +183,6 @@ public class User {
   }
 
 
-
   public void setEmail(String email) {
     this.email = email;
   }
@@ -211,7 +206,6 @@ public class User {
   public String getPassword() {
     return password;
   }
-
 
 
   public void setPassword(String password) {
@@ -239,7 +233,6 @@ public class User {
   }
 
 
-
   public void setPhone(String phone) {
     this.phone = phone;
   }
@@ -263,7 +256,6 @@ public class User {
   public Integer getUserStatus() {
     return userStatus;
   }
-
 
 
   public void setUserStatus(Integer userStatus) {

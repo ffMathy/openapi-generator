@@ -15,6 +15,8 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -25,6 +27,8 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import org.openapitools.client.JSON;
+
 
 /**
  * XmlItem
@@ -60,7 +64,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   XmlItem.JSON_PROPERTY_PREFIX_NS_ARRAY,
   XmlItem.JSON_PROPERTY_PREFIX_NS_WRAPPED_ARRAY
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class XmlItem {
   public static final String JSON_PROPERTY_ATTRIBUTE_STRING = "attribute_string";
   private String attributeString;
@@ -151,7 +155,6 @@ public class XmlItem {
 
 
   public XmlItem attributeString(String attributeString) {
-    
     this.attributeString = attributeString;
     return this;
   }
@@ -170,14 +173,12 @@ public class XmlItem {
   }
 
 
-
   public void setAttributeString(String attributeString) {
     this.attributeString = attributeString;
   }
 
 
   public XmlItem attributeNumber(BigDecimal attributeNumber) {
-    
     this.attributeNumber = attributeNumber;
     return this;
   }
@@ -196,14 +197,12 @@ public class XmlItem {
   }
 
 
-
   public void setAttributeNumber(BigDecimal attributeNumber) {
     this.attributeNumber = attributeNumber;
   }
 
 
   public XmlItem attributeInteger(Integer attributeInteger) {
-    
     this.attributeInteger = attributeInteger;
     return this;
   }
@@ -222,14 +221,12 @@ public class XmlItem {
   }
 
 
-
   public void setAttributeInteger(Integer attributeInteger) {
     this.attributeInteger = attributeInteger;
   }
 
 
   public XmlItem attributeBoolean(Boolean attributeBoolean) {
-    
     this.attributeBoolean = attributeBoolean;
     return this;
   }
@@ -248,14 +245,12 @@ public class XmlItem {
   }
 
 
-
   public void setAttributeBoolean(Boolean attributeBoolean) {
     this.attributeBoolean = attributeBoolean;
   }
 
 
   public XmlItem wrappedArray(List<Integer> wrappedArray) {
-    
     this.wrappedArray = wrappedArray;
     return this;
   }
@@ -282,14 +277,12 @@ public class XmlItem {
   }
 
 
-
   public void setWrappedArray(List<Integer> wrappedArray) {
     this.wrappedArray = wrappedArray;
   }
 
 
   public XmlItem nameString(String nameString) {
-    
     this.nameString = nameString;
     return this;
   }
@@ -308,14 +301,12 @@ public class XmlItem {
   }
 
 
-
   public void setNameString(String nameString) {
     this.nameString = nameString;
   }
 
 
   public XmlItem nameNumber(BigDecimal nameNumber) {
-    
     this.nameNumber = nameNumber;
     return this;
   }
@@ -334,14 +325,12 @@ public class XmlItem {
   }
 
 
-
   public void setNameNumber(BigDecimal nameNumber) {
     this.nameNumber = nameNumber;
   }
 
 
   public XmlItem nameInteger(Integer nameInteger) {
-    
     this.nameInteger = nameInteger;
     return this;
   }
@@ -360,14 +349,12 @@ public class XmlItem {
   }
 
 
-
   public void setNameInteger(Integer nameInteger) {
     this.nameInteger = nameInteger;
   }
 
 
   public XmlItem nameBoolean(Boolean nameBoolean) {
-    
     this.nameBoolean = nameBoolean;
     return this;
   }
@@ -386,14 +373,12 @@ public class XmlItem {
   }
 
 
-
   public void setNameBoolean(Boolean nameBoolean) {
     this.nameBoolean = nameBoolean;
   }
 
 
   public XmlItem nameArray(List<Integer> nameArray) {
-    
     this.nameArray = nameArray;
     return this;
   }
@@ -420,14 +405,12 @@ public class XmlItem {
   }
 
 
-
   public void setNameArray(List<Integer> nameArray) {
     this.nameArray = nameArray;
   }
 
 
   public XmlItem nameWrappedArray(List<Integer> nameWrappedArray) {
-    
     this.nameWrappedArray = nameWrappedArray;
     return this;
   }
@@ -454,14 +437,12 @@ public class XmlItem {
   }
 
 
-
   public void setNameWrappedArray(List<Integer> nameWrappedArray) {
     this.nameWrappedArray = nameWrappedArray;
   }
 
 
   public XmlItem prefixString(String prefixString) {
-    
     this.prefixString = prefixString;
     return this;
   }
@@ -480,14 +461,12 @@ public class XmlItem {
   }
 
 
-
   public void setPrefixString(String prefixString) {
     this.prefixString = prefixString;
   }
 
 
   public XmlItem prefixNumber(BigDecimal prefixNumber) {
-    
     this.prefixNumber = prefixNumber;
     return this;
   }
@@ -506,14 +485,12 @@ public class XmlItem {
   }
 
 
-
   public void setPrefixNumber(BigDecimal prefixNumber) {
     this.prefixNumber = prefixNumber;
   }
 
 
   public XmlItem prefixInteger(Integer prefixInteger) {
-    
     this.prefixInteger = prefixInteger;
     return this;
   }
@@ -532,14 +509,12 @@ public class XmlItem {
   }
 
 
-
   public void setPrefixInteger(Integer prefixInteger) {
     this.prefixInteger = prefixInteger;
   }
 
 
   public XmlItem prefixBoolean(Boolean prefixBoolean) {
-    
     this.prefixBoolean = prefixBoolean;
     return this;
   }
@@ -558,14 +533,12 @@ public class XmlItem {
   }
 
 
-
   public void setPrefixBoolean(Boolean prefixBoolean) {
     this.prefixBoolean = prefixBoolean;
   }
 
 
   public XmlItem prefixArray(List<Integer> prefixArray) {
-    
     this.prefixArray = prefixArray;
     return this;
   }
@@ -592,14 +565,12 @@ public class XmlItem {
   }
 
 
-
   public void setPrefixArray(List<Integer> prefixArray) {
     this.prefixArray = prefixArray;
   }
 
 
   public XmlItem prefixWrappedArray(List<Integer> prefixWrappedArray) {
-    
     this.prefixWrappedArray = prefixWrappedArray;
     return this;
   }
@@ -626,14 +597,12 @@ public class XmlItem {
   }
 
 
-
   public void setPrefixWrappedArray(List<Integer> prefixWrappedArray) {
     this.prefixWrappedArray = prefixWrappedArray;
   }
 
 
   public XmlItem namespaceString(String namespaceString) {
-    
     this.namespaceString = namespaceString;
     return this;
   }
@@ -652,14 +621,12 @@ public class XmlItem {
   }
 
 
-
   public void setNamespaceString(String namespaceString) {
     this.namespaceString = namespaceString;
   }
 
 
   public XmlItem namespaceNumber(BigDecimal namespaceNumber) {
-    
     this.namespaceNumber = namespaceNumber;
     return this;
   }
@@ -678,14 +645,12 @@ public class XmlItem {
   }
 
 
-
   public void setNamespaceNumber(BigDecimal namespaceNumber) {
     this.namespaceNumber = namespaceNumber;
   }
 
 
   public XmlItem namespaceInteger(Integer namespaceInteger) {
-    
     this.namespaceInteger = namespaceInteger;
     return this;
   }
@@ -704,14 +669,12 @@ public class XmlItem {
   }
 
 
-
   public void setNamespaceInteger(Integer namespaceInteger) {
     this.namespaceInteger = namespaceInteger;
   }
 
 
   public XmlItem namespaceBoolean(Boolean namespaceBoolean) {
-    
     this.namespaceBoolean = namespaceBoolean;
     return this;
   }
@@ -730,14 +693,12 @@ public class XmlItem {
   }
 
 
-
   public void setNamespaceBoolean(Boolean namespaceBoolean) {
     this.namespaceBoolean = namespaceBoolean;
   }
 
 
   public XmlItem namespaceArray(List<Integer> namespaceArray) {
-    
     this.namespaceArray = namespaceArray;
     return this;
   }
@@ -764,14 +725,12 @@ public class XmlItem {
   }
 
 
-
   public void setNamespaceArray(List<Integer> namespaceArray) {
     this.namespaceArray = namespaceArray;
   }
 
 
   public XmlItem namespaceWrappedArray(List<Integer> namespaceWrappedArray) {
-    
     this.namespaceWrappedArray = namespaceWrappedArray;
     return this;
   }
@@ -798,14 +757,12 @@ public class XmlItem {
   }
 
 
-
   public void setNamespaceWrappedArray(List<Integer> namespaceWrappedArray) {
     this.namespaceWrappedArray = namespaceWrappedArray;
   }
 
 
   public XmlItem prefixNsString(String prefixNsString) {
-    
     this.prefixNsString = prefixNsString;
     return this;
   }
@@ -824,14 +781,12 @@ public class XmlItem {
   }
 
 
-
   public void setPrefixNsString(String prefixNsString) {
     this.prefixNsString = prefixNsString;
   }
 
 
   public XmlItem prefixNsNumber(BigDecimal prefixNsNumber) {
-    
     this.prefixNsNumber = prefixNsNumber;
     return this;
   }
@@ -850,14 +805,12 @@ public class XmlItem {
   }
 
 
-
   public void setPrefixNsNumber(BigDecimal prefixNsNumber) {
     this.prefixNsNumber = prefixNsNumber;
   }
 
 
   public XmlItem prefixNsInteger(Integer prefixNsInteger) {
-    
     this.prefixNsInteger = prefixNsInteger;
     return this;
   }
@@ -876,14 +829,12 @@ public class XmlItem {
   }
 
 
-
   public void setPrefixNsInteger(Integer prefixNsInteger) {
     this.prefixNsInteger = prefixNsInteger;
   }
 
 
   public XmlItem prefixNsBoolean(Boolean prefixNsBoolean) {
-    
     this.prefixNsBoolean = prefixNsBoolean;
     return this;
   }
@@ -902,14 +853,12 @@ public class XmlItem {
   }
 
 
-
   public void setPrefixNsBoolean(Boolean prefixNsBoolean) {
     this.prefixNsBoolean = prefixNsBoolean;
   }
 
 
   public XmlItem prefixNsArray(List<Integer> prefixNsArray) {
-    
     this.prefixNsArray = prefixNsArray;
     return this;
   }
@@ -936,14 +885,12 @@ public class XmlItem {
   }
 
 
-
   public void setPrefixNsArray(List<Integer> prefixNsArray) {
     this.prefixNsArray = prefixNsArray;
   }
 
 
   public XmlItem prefixNsWrappedArray(List<Integer> prefixNsWrappedArray) {
-    
     this.prefixNsWrappedArray = prefixNsWrappedArray;
     return this;
   }
@@ -970,12 +917,14 @@ public class XmlItem {
   }
 
 
-
   public void setPrefixNsWrappedArray(List<Integer> prefixNsWrappedArray) {
     this.prefixNsWrappedArray = prefixNsWrappedArray;
   }
 
 
+  /**
+   * Return true if this XmlItem object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

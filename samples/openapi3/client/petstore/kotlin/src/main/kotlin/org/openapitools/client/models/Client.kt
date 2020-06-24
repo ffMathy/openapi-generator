@@ -14,6 +14,7 @@ package org.openapitools.client.models
 
 import com.squareup.moshi.Json
 import java.io.Serializable
+
 /**
  * 
  * @param client 
@@ -22,7 +23,10 @@ import java.io.Serializable
 data class Client (
     @Json(name = "client")
     val client: kotlin.String? = null
-) 
-: Serializable 
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
+}
 

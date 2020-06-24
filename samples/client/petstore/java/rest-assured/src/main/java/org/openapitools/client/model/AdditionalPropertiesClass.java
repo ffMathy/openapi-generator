@@ -27,11 +27,14 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
+import org.hibernate.validator.constraints.*;
 
 /**
  * AdditionalPropertiesClass
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AdditionalPropertiesClass {
   public static final String SERIALIZED_NAME_MAP_STRING = "map_string";
   @SerializedName(SERIALIZED_NAME_MAP_STRING)
@@ -104,7 +107,6 @@ public class AdditionalPropertiesClass {
   }
 
 
-
   public void setMapString(Map<String, String> mapString) {
     this.mapString = mapString;
   }
@@ -129,12 +131,12 @@ public class AdditionalPropertiesClass {
    * @return mapNumber
   **/
   @javax.annotation.Nullable
+  @Valid
   @ApiModelProperty(value = "")
 
   public Map<String, BigDecimal> getMapNumber() {
     return mapNumber;
   }
-
 
 
   public void setMapNumber(Map<String, BigDecimal> mapNumber) {
@@ -168,7 +170,6 @@ public class AdditionalPropertiesClass {
   }
 
 
-
   public void setMapInteger(Map<String, Integer> mapInteger) {
     this.mapInteger = mapInteger;
   }
@@ -200,7 +201,6 @@ public class AdditionalPropertiesClass {
   }
 
 
-
   public void setMapBoolean(Map<String, Boolean> mapBoolean) {
     this.mapBoolean = mapBoolean;
   }
@@ -225,12 +225,12 @@ public class AdditionalPropertiesClass {
    * @return mapArrayInteger
   **/
   @javax.annotation.Nullable
+  @Valid
   @ApiModelProperty(value = "")
 
   public Map<String, List<Integer>> getMapArrayInteger() {
     return mapArrayInteger;
   }
-
 
 
   public void setMapArrayInteger(Map<String, List<Integer>> mapArrayInteger) {
@@ -257,12 +257,12 @@ public class AdditionalPropertiesClass {
    * @return mapArrayAnytype
   **/
   @javax.annotation.Nullable
+  @Valid
   @ApiModelProperty(value = "")
 
   public Map<String, List<Object>> getMapArrayAnytype() {
     return mapArrayAnytype;
   }
-
 
 
   public void setMapArrayAnytype(Map<String, List<Object>> mapArrayAnytype) {
@@ -289,12 +289,12 @@ public class AdditionalPropertiesClass {
    * @return mapMapString
   **/
   @javax.annotation.Nullable
+  @Valid
   @ApiModelProperty(value = "")
 
   public Map<String, Map<String, String>> getMapMapString() {
     return mapMapString;
   }
-
 
 
   public void setMapMapString(Map<String, Map<String, String>> mapMapString) {
@@ -321,12 +321,12 @@ public class AdditionalPropertiesClass {
    * @return mapMapAnytype
   **/
   @javax.annotation.Nullable
+  @Valid
   @ApiModelProperty(value = "")
 
   public Map<String, Map<String, Object>> getMapMapAnytype() {
     return mapMapAnytype;
   }
-
 
 
   public void setMapMapAnytype(Map<String, Map<String, Object>> mapMapAnytype) {
@@ -352,7 +352,6 @@ public class AdditionalPropertiesClass {
   }
 
 
-
   public void setAnytype1(Object anytype1) {
     this.anytype1 = anytype1;
   }
@@ -376,7 +375,6 @@ public class AdditionalPropertiesClass {
   }
 
 
-
   public void setAnytype2(Object anytype2) {
     this.anytype2 = anytype2;
   }
@@ -398,7 +396,6 @@ public class AdditionalPropertiesClass {
   public Object getAnytype3() {
     return anytype3;
   }
-
 
 
   public void setAnytype3(Object anytype3) {

@@ -33,7 +33,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * MixedPropertiesAndAdditionalPropertiesClass
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MixedPropertiesAndAdditionalPropertiesClass {
   public static final String SERIALIZED_NAME_UUID = "uuid";
   @SerializedName(SERIALIZED_NAME_UUID)
@@ -66,7 +66,6 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
   }
 
 
-
   public void setUuid(UUID uuid) {
     this.uuid = uuid;
   }
@@ -88,7 +87,6 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
   public OffsetDateTime getDateTime() {
     return dateTime;
   }
-
 
 
   public void setDateTime(OffsetDateTime dateTime) {
@@ -120,7 +118,6 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
   public Map<String, Animal> getMap() {
     return map;
   }
-
 
 
   public void setMap(Map<String, Animal> map) {

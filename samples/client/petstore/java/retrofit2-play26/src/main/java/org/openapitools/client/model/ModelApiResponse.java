@@ -33,7 +33,7 @@ import javax.validation.Valid;
   ModelApiResponse.JSON_PROPERTY_TYPE,
   ModelApiResponse.JSON_PROPERTY_MESSAGE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ModelApiResponse {
   public static final String JSON_PROPERTY_CODE = "code";
   private Integer code;
@@ -65,7 +65,6 @@ public class ModelApiResponse {
   }
 
 
-
   public void setCode(Integer code) {
     this.code = code;
   }
@@ -91,7 +90,6 @@ public class ModelApiResponse {
   }
 
 
-
   public void setType(String type) {
     this.type = type;
   }
@@ -115,7 +113,6 @@ public class ModelApiResponse {
   public String getMessage() {
     return message;
   }
-
 
 
   public void setMessage(String message) {

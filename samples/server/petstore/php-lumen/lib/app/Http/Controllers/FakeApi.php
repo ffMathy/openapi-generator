@@ -3,6 +3,7 @@
 /**
  * OpenAPI Petstore
  * This spec is mainly for testing Petstore server and contains fake endpoints, models. Please do not use this for any other purpose. Special characters: \" \\
+ * PHP version 7.1.3
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -53,7 +54,7 @@ class FakeApi extends Controller
     /**
      * Operation testEndpointParameters
      *
-     * Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트.
+     * Fake endpoint for testing various parameters  假端點  偽のエンドポイント  가짜 엔드 포인트.
      *
      *
      * @return Http response

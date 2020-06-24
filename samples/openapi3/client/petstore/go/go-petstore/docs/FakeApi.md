@@ -5,6 +5,7 @@ All URIs are relative to *http://petstore.swagger.io:80/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**FakeHealthGet**](FakeApi.md#FakeHealthGet) | **Get** /fake/health | Health check endpoint
+[**FakeHttpSignatureTest**](FakeApi.md#FakeHttpSignatureTest) | **Get** /fake/http-signature-test | test http signature authentication
 [**FakeOuterBooleanSerialize**](FakeApi.md#FakeOuterBooleanSerialize) | **Post** /fake/outer/boolean | 
 [**FakeOuterCompositeSerialize**](FakeApi.md#FakeOuterCompositeSerialize) | **Post** /fake/outer/composite | 
 [**FakeOuterNumberSerialize**](FakeApi.md#FakeOuterNumberSerialize) | **Post** /fake/outer/number | 
@@ -24,6 +25,7 @@ Method | HTTP request | Description
 ## FakeHealthGet
 
 > HealthCheckResult FakeHealthGet(ctx, )
+
 Health check endpoint
 
 ### Required Parameters
@@ -48,9 +50,54 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## FakeHttpSignatureTest
+
+> FakeHttpSignatureTest(ctx, pet, optional)
+
+test http signature authentication
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**pet** | [**Pet**](Pet.md)| Pet object that needs to be added to the store | 
+ **optional** | ***FakeHttpSignatureTestOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+
+Optional parameters are passed through a pointer to a FakeHttpSignatureTestOpts struct
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **query1** | **optional.String**| query parameter | 
+ **header1** | **optional.String**| header parameter | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[http_signature_test](../README.md#http_signature_test)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## FakeOuterBooleanSerialize
 
 > bool FakeOuterBooleanSerialize(ctx, optional)
+
 
 
 Test serialization of outer boolean types
@@ -95,6 +142,7 @@ No authorization required
 > OuterComposite FakeOuterCompositeSerialize(ctx, optional)
 
 
+
 Test serialization of object with outer number type
 
 ### Required Parameters
@@ -135,6 +183,7 @@ No authorization required
 ## FakeOuterNumberSerialize
 
 > float32 FakeOuterNumberSerialize(ctx, optional)
+
 
 
 Test serialization of outer number types
@@ -179,6 +228,7 @@ No authorization required
 > string FakeOuterStringSerialize(ctx, optional)
 
 
+
 Test serialization of outer string types
 
 ### Required Parameters
@@ -221,6 +271,7 @@ No authorization required
 > TestBodyWithFileSchema(ctx, fileSchemaTestClass)
 
 
+
 For this test, the body for this request much reference a schema named `File`.
 
 ### Required Parameters
@@ -254,6 +305,7 @@ No authorization required
 > TestBodyWithQueryParams(ctx, query, user)
 
 
+
 ### Required Parameters
 
 
@@ -284,6 +336,7 @@ No authorization required
 ## TestClientModel
 
 > Client TestClientModel(ctx, client)
+
 To test \"client\" model
 
 To test \"client\" model
@@ -317,6 +370,7 @@ No authorization required
 ## TestEndpointParameters
 
 > TestEndpointParameters(ctx, number, double, patternWithoutDelimiter, byte_, optional)
+
 Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
 
 Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
@@ -376,6 +430,7 @@ Name | Type | Description  | Notes
 ## TestEnumParameters
 
 > TestEnumParameters(ctx, optional)
+
 To test enum parameters
 
 To test enum parameters
@@ -425,6 +480,7 @@ No authorization required
 ## TestGroupParameters
 
 > TestGroupParameters(ctx, requiredStringGroup, requiredBooleanGroup, requiredInt64Group, optional)
+
 Fake endpoint to test group parameters (optional)
 
 Fake endpoint to test group parameters (optional)
@@ -475,6 +531,7 @@ Name | Type | Description  | Notes
 ## TestInlineAdditionalProperties
 
 > TestInlineAdditionalProperties(ctx, requestBody)
+
 test inline additionalProperties
 
 ### Required Parameters
@@ -506,6 +563,7 @@ No authorization required
 ## TestJsonFormData
 
 > TestJsonFormData(ctx, param, param2)
+
 test json serialization of form data
 
 ### Required Parameters
@@ -538,6 +596,7 @@ No authorization required
 ## TestQueryParameterCollectionFormat
 
 > TestQueryParameterCollectionFormat(ctx, pipe, ioutil, http, url, context)
+
 
 
 To test the collection format in query parameters

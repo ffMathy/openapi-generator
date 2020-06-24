@@ -18,7 +18,7 @@ import io.vertx.core.MultiMap;
 
 import java.util.List;
 
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class OAuth implements Authentication {
   private String accessToken;
 
@@ -31,7 +31,7 @@ public class OAuth implements Authentication {
   }
 
   @Override
-  public void applyToParams(List<Pair> queryParams, MultiMap headerParams) {
+  public void applyToParams(List<Pair> queryParams, MultiMap headerParams, MultiMap cookieParams) {
     if (accessToken != null) {
       headerParams.add("Authorization", "Bearer " + accessToken);
     }

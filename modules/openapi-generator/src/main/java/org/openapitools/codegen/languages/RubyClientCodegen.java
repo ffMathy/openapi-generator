@@ -6,7 +6,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ *     https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -22,13 +22,14 @@ import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.parameters.Parameter;
 import org.apache.commons.lang3.StringUtils;
 import org.openapitools.codegen.*;
+import org.openapitools.codegen.meta.features.*;
 import org.openapitools.codegen.utils.ModelUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.util.Arrays;
-import java.util.Iterator;
+import java.util.EnumSet;
 import java.util.Locale;
 import java.util.Map;
 
@@ -69,6 +70,33 @@ public class RubyClientCodegen extends AbstractRubyCodegen {
     public RubyClientCodegen() {
         super();
 
+        modifyFeatureSet(features -> features
+                .includeDocumentationFeatures(DocumentationFeature.Readme)
+                .wireFormatFeatures(EnumSet.of(WireFormatFeature.JSON, WireFormatFeature.XML, WireFormatFeature.Custom))
+                .securityFeatures(EnumSet.of(
+                        SecurityFeature.BasicAuth,
+                        SecurityFeature.BearerToken,
+                        SecurityFeature.ApiKey,
+                        SecurityFeature.OAuth2_Implicit
+                ))
+                .excludeGlobalFeatures(
+                        GlobalFeature.XMLStructureDefinitions,
+                        GlobalFeature.Callbacks,
+                        GlobalFeature.LinkObjects,
+                        GlobalFeature.ParameterStyling
+                )
+                .includeSchemaSupportFeatures(
+                        SchemaSupportFeature.Polymorphism
+                )
+                .excludeParameterFeatures(
+                        ParameterFeature.Cookie
+                )
+                .includeClientModificationFeatures(
+                        ClientModificationFeature.BasePath,
+                        ClientModificationFeature.UserAgent
+                )
+        );
+
         supportsInheritance = true;
 
         // clear import mapping (from default generator) as ruby does not use it
@@ -104,14 +132,8 @@ public class RubyClientCodegen extends AbstractRubyCodegen {
         languageSpecificPrimitives.add("string");
 
         // remove modelPackage and apiPackage added by default
-        Iterator<CliOption> itr = cliOptions.iterator();
-        while (itr.hasNext()) {
-            CliOption opt = itr.next();
-            if (CodegenConstants.MODEL_PACKAGE.equals(opt.getOpt()) ||
-                    CodegenConstants.API_PACKAGE.equals(opt.getOpt())) {
-                itr.remove();
-            }
-        }
+        cliOptions.removeIf(opt -> CodegenConstants.MODEL_PACKAGE.equals(opt.getOpt()) ||
+                CodegenConstants.API_PACKAGE.equals(opt.getOpt()));
 
         cliOptions.add(new CliOption(CodegenConstants.GEM_NAME, CodegenConstants.GEM_NAME_DESC).
                 defaultValue("openapi_client"));
@@ -246,12 +268,14 @@ public class RubyClientCodegen extends AbstractRubyCodegen {
         }
 
         // test files should not be overwritten
-        writeOptional(outputFolder, new SupportingFile("rspec.mustache", "", ".rspec"));
-        writeOptional(outputFolder, new SupportingFile("spec_helper.mustache", specFolder, "spec_helper.rb"));
-        writeOptional(outputFolder, new SupportingFile("configuration_spec.mustache", specFolder, "configuration_spec.rb"));
-        writeOptional(outputFolder, new SupportingFile("api_client_spec.mustache", specFolder, "api_client_spec.rb"));
-        // not including base object test as the moment as not all API has model
-        //writeOptional(outputFolder, new SupportingFile("base_object_spec.mustache", specFolder, "base_object_spec.rb"));
+        supportingFiles.add(new SupportingFile("rspec.mustache", "", ".rspec")
+                .doNotOverwrite());
+        supportingFiles.add(new SupportingFile("spec_helper.mustache", specFolder, "spec_helper.rb")
+                .doNotOverwrite());
+        supportingFiles.add(new SupportingFile("configuration_spec.mustache", specFolder, "configuration_spec.rb")
+                .doNotOverwrite());
+        supportingFiles.add(new SupportingFile("api_client_spec.mustache", specFolder, "api_client_spec.rb")
+                .doNotOverwrite());
     }
 
     @Override
@@ -342,33 +366,34 @@ public class RubyClientCodegen extends AbstractRubyCodegen {
     }
 
     @Override
-    public String toModelName(String name) {
-        name = sanitizeName(name); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
+    public String toModelName(final String name) {
+        String modelName;
+        modelName = sanitizeName(name);
 
         if (!StringUtils.isEmpty(modelNamePrefix)) {
-            name = modelNamePrefix + "_" + name;
+            modelName = modelNamePrefix + "_" + modelName;
         }
 
         if (!StringUtils.isEmpty(modelNameSuffix)) {
-            name = name + "_" + modelNameSuffix;
+            modelName = modelName + "_" + modelNameSuffix;
         }
 
         // model name cannot use reserved keyword, e.g. return
-        if (isReservedWord(name)) {
-            String modelName = camelize("Model" + name);
+        if (isReservedWord(modelName)) {
+            modelName = camelize("Model" + modelName);
             LOGGER.warn(name + " (reserved word) cannot be used as model name. Renamed to " + modelName);
             return modelName;
         }
 
         // model name starts with number
-        if (name.matches("^\\d.*")) {
-            LOGGER.warn(name + " (model name starts with number) cannot be used as model name. Renamed to " + camelize("model_" + name));
-            name = "model_" + name; // e.g. 200Response => Model200Response (after camelize)
+        if (modelName.matches("^\\d.*")) {
+            LOGGER.warn(modelName + " (model name starts with number) cannot be used as model name. Renamed to " + camelize("model_" + modelName));
+            modelName = "model_" + modelName; // e.g. 200Response => Model200Response (after camelize)
         }
 
         // camelize the model name
         // phone_number => PhoneNumber
-        return camelize(name);
+        return camelize(modelName);
     }
 
     @Override
@@ -382,12 +407,17 @@ public class RubyClientCodegen extends AbstractRubyCodegen {
     }
 
     @Override
-    public String toApiFilename(String name) {
+    public String toApiFilename(final String name) {
         // replace - with _ e.g. created-at => created_at
-        name = name.replaceAll("-", "_"); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
+        String filename = name;
+        if (apiNameSuffix != null && apiNameSuffix.length() > 0) {
+            filename = filename + "_"  + apiNameSuffix;
+        }
+
+        filename = filename.replaceAll("-", "_");
 
         // e.g. PhoneNumberApi.rb => phone_number_api.rb
-        return underscore(name) + "_api";
+        return underscore(filename);
     }
 
     @Override
@@ -407,11 +437,7 @@ public class RubyClientCodegen extends AbstractRubyCodegen {
 
     @Override
     public String toApiName(String name) {
-        if (name.length() == 0) {
-            return "DefaultApi";
-        }
-        // e.g. phone_number_api => PhoneNumberApi
-        return camelize(name) + "Api";
+        return super.toApiName(name);
     }
 
     @Override
@@ -633,7 +659,7 @@ public class RubyClientCodegen extends AbstractRubyCodegen {
 
     @Override
     protected void addAdditionPropertiesToCodeGenModel(CodegenModel codegenModel, Schema schema) {
-        final Schema additionalProperties = ModelUtils.getAdditionalProperties(schema);
+        final Schema additionalProperties = getAdditionalProperties(schema);
 
         if (additionalProperties != null) {
             codegenModel.additionalPropertiesType = getSchemaType(additionalProperties);

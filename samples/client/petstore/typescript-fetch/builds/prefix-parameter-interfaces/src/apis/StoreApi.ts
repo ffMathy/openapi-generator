@@ -1,4 +1,5 @@
-// tslint:disable
+/* tslint:disable */
+/* eslint-disable */
 /**
  * OpenAPI Petstore
  * This is a sample server Petstore server. For this sample, you can use the api key `special-key` to test the authorization filters.
@@ -32,7 +33,7 @@ export interface StoreApiPlaceOrderRequest {
 }
 
 /**
- * no description
+ * 
  */
 export class StoreApi extends runtime.BaseAPI {
 

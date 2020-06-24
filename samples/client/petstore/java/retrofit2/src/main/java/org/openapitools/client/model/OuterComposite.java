@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * OuterComposite
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class OuterComposite {
   public static final String SERIALIZED_NAME_MY_NUMBER = "my_number";
   @SerializedName(SERIALIZED_NAME_MY_NUMBER)
@@ -61,7 +61,6 @@ public class OuterComposite {
   }
 
 
-
   public void setMyNumber(BigDecimal myNumber) {
     this.myNumber = myNumber;
   }
@@ -85,7 +84,6 @@ public class OuterComposite {
   }
 
 
-
   public void setMyString(String myString) {
     this.myString = myString;
   }
@@ -107,7 +105,6 @@ public class OuterComposite {
   public Boolean getMyBoolean() {
     return myBoolean;
   }
-
 
 
   public void setMyBoolean(Boolean myBoolean) {

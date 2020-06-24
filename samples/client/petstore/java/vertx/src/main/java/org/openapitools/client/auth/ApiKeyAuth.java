@@ -18,7 +18,7 @@ import io.vertx.core.MultiMap;
 
 import java.util.List;
 
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ApiKeyAuth implements Authentication {
   private final String location;
   private final String paramName;
@@ -56,7 +56,7 @@ public class ApiKeyAuth implements Authentication {
   }
 
   @Override
-  public void applyToParams(List<Pair> queryParams, MultiMap headerParams) {
+  public void applyToParams(List<Pair> queryParams, MultiMap headerParams, MultiMap cookieParams) {
     if (apiKey == null) {
       return;
     }
@@ -70,6 +70,8 @@ public class ApiKeyAuth implements Authentication {
       queryParams.add(new Pair(paramName, value));
     } else if ("header".equals(location)) {
       headerParams.add(paramName, value);
+    } else if ("cookie".equals(location)) {
+      cookieParams.add(paramName, value);
     }
   }
 }

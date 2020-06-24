@@ -29,7 +29,7 @@ import android.os.Parcel;
 /**
  * ReadOnlyFirst
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ReadOnlyFirst implements Parcelable {
   public static final String SERIALIZED_NAME_BAR = "bar";
   @SerializedName(SERIALIZED_NAME_BAR)
@@ -72,7 +72,6 @@ public class ReadOnlyFirst implements Parcelable {
   public String getBaz() {
     return baz;
   }
-
 
 
   public void setBaz(String baz) {

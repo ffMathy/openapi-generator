@@ -1,11 +1,14 @@
-{{#jvm}}
+{{^multiplatform}}
 {{#gson}}
 import com.google.gson.annotations.SerializedName
 {{/gson}}
 {{#moshi}}
 import com.squareup.moshi.Json
 {{/moshi}}
-{{/jvm}}
+{{#jackson}}
+import com.fasterxml.jackson.annotation.JsonProperty
+{{/jackson}}
+{{/multiplatform}}
 {{#multiplatform}}
 import kotlinx.serialization.*
 import kotlinx.serialization.internal.CommonEnumSerializer
@@ -16,17 +19,20 @@ import kotlinx.serialization.internal.CommonEnumSerializer
 * Values: {{#allowableValues}}{{#enumVars}}{{&name}}{{^-last}},{{/-last}}{{/enumVars}}{{/allowableValues}}
 */
 {{#multiplatform}}@Serializable(with = {{classname}}.Serializer::class){{/multiplatform}}
-enum class {{classname}}(val value: {{{dataType}}}){
+{{#nonPublicApi}}internal {{/nonPublicApi}}enum class {{classname}}(val value: {{{dataType}}}){
 
 {{#allowableValues}}{{#enumVars}}
-    {{#jvm}}
+    {{^multiplatform}}
     {{#moshi}}
     @Json(name = {{^isString}}"{{/isString}}{{{value}}}{{^isString}}"{{/isString}})
     {{/moshi}}
     {{#gson}}
     @SerializedName(value = {{^isString}}"{{/isString}}{{{value}}}{{^isString}}"{{/isString}})
     {{/gson}}
-    {{/jvm}}
+    {{#jackson}}
+    @JsonProperty(value = {{^isString}}"{{/isString}}{{{value}}}{{^isString}}"{{/isString}})
+    {{/jackson}}
+    {{/multiplatform}}
     {{#isListContainer}}
     {{#isList}}
     {{&name}}(listOf({{{value}}})){{^-last}},{{/-last}}{{#-last}};{{/-last}}
@@ -41,7 +47,15 @@ enum class {{classname}}(val value: {{{dataType}}}){
 
 {{/enumVars}}{{/allowableValues}}
 
+    /**
+    This override toString avoids using the enum var name and uses the actual api value instead.
+    In cases the var name and value are different, the client would send incorrect enums to the server.
+    **/
+    override fun toString(): String {
+        return value{{^isString}}.toString(){{/isString}}
+    }
+
 {{#multiplatform}}
-    object Serializer : CommonEnumSerializer<{{classname}}>("{{classname}}", values(), values().map { it.value }.toTypedArray())
+    {{#nonPublicApi}}internal {{/nonPublicApi}}object Serializer : CommonEnumSerializer<{{classname}}>("{{classname}}", values(), values().map { it.value.toString() }.toTypedArray())
 {{/multiplatform}}
 }

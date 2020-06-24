@@ -34,20 +34,20 @@ import javax.xml.bind.annotation.*;
   FileSchemaTestClass.JSON_PROPERTY_FILE,
   FileSchemaTestClass.JSON_PROPERTY_FILES
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 @XmlRootElement(name = "FileSchemaTestClass")
 @XmlAccessorType(XmlAccessType.FIELD)
 @JacksonXmlRootElement(localName = "FileSchemaTestClass")
 public class FileSchemaTestClass {
-  @XmlElement(name = "file")
   public static final String JSON_PROPERTY_FILE = "file";
+  @XmlElement(name = "file")
   private java.io.File file;
 
+  public static final String JSON_PROPERTY_FILES = "files";
   // Is a container wrapped=false
   // items.name=files items.baseName=files items.xmlName= items.xmlNamespace=
   // items.example= items.type=java.io.File
   @XmlElement(name = "files")
-  public static final String JSON_PROPERTY_FILES = "files";
   private List<java.io.File> files = null;
 
 
@@ -70,7 +70,6 @@ public class FileSchemaTestClass {
   public java.io.File getFile() {
     return file;
   }
-
 
 
   public void setFile(java.io.File file) {
@@ -104,7 +103,6 @@ public class FileSchemaTestClass {
   public List<java.io.File> getFiles() {
     return files;
   }
-
 
 
   public void setFiles(List<java.io.File> files) {

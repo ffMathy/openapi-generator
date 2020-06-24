@@ -7,9 +7,10 @@ import play.mvc.Http;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.io.FileInputStream;
 import javax.validation.constraints.*;
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen")
 public class StoreApiControllerImp implements StoreApiControllerImpInterface {
     @Override
     public void deleteOrder(String orderId) throws Exception {
@@ -17,21 +18,27 @@ public class StoreApiControllerImp implements StoreApiControllerImpInterface {
     }
 
     @Override
-    public Map<String, Integer> getInventory() throws Exception {
+    public CompletionStage<Map<String, Integer>> getInventory() throws Exception {
         //Do your magic!!!
-        return new HashMap<String, Integer>();
+        return CompletableFuture.supplyAsync(() -> {
+           return new HashMap<String, Integer>();
+        });
     }
 
     @Override
-    public Order getOrderById( @Min(1) @Max(5)Long orderId) throws Exception {
+    public CompletionStage<Order> getOrderById( @Min(1) @Max(5)Long orderId) throws Exception {
         //Do your magic!!!
-        return new Order();
+        return CompletableFuture.supplyAsync(() -> {
+           return new Order();
+        });
     }
 
     @Override
-    public Order placeOrder(Order body) throws Exception {
+    public CompletionStage<Order> placeOrder(Order body) throws Exception {
         //Do your magic!!!
-        return new Order();
+        return CompletableFuture.supplyAsync(() -> {
+           return new Order();
+        });
     }
 
 }

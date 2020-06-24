@@ -32,7 +32,7 @@ import javax.validation.Valid;
   Category.JSON_PROPERTY_ID,
   Category.JSON_PROPERTY_NAME
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Category {
   public static final String JSON_PROPERTY_ID = "id";
   private Long id;
@@ -61,7 +61,6 @@ public class Category {
   }
 
 
-
   public void setId(Long id) {
     this.id = id;
   }
@@ -85,7 +84,6 @@ public class Category {
   public String getName() {
     return name;
   }
-
 
 
   public void setName(String name) {

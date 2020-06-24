@@ -13,19 +13,25 @@
 from __future__ import absolute_import
 
 import re  # noqa: F401
+import sys  # noqa: F401
 
 # python 2 and python 3 compatibility library
 import six
 
-from petstore_api.api_client import ApiClient
-from petstore_api.exceptions import (
-    ApiTypeError,
-    ApiValueError
-)
-from petstore_api.model_utils import (
+from petstore_api.api_client import ApiClient, Endpoint
+from petstore_api.model_utils import (  # noqa: F401
     check_allowed_values,
-    check_validations
+    check_validations,
+    date,
+    datetime,
+    file_type,
+    int,
+    none_type,
+    str,
+    validate_and_convert_types
 )
+from petstore_api.model import pet
+from petstore_api.model import api_response
 
 
 class PetApi(object):
@@ -40,32 +46,69 @@ class PetApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-        def __add_pet(self, body, **kwargs):  # noqa: E501
+        def __add_pet(
+            self,
+            body,
+            **kwargs
+        ):
             """Add a new pet to the store  # noqa: E501
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
+
             >>> thread = api.add_pet(body, async_req=True)
             >>> result = thread.get()
 
-            :param async_req bool: execute request asynchronously
-            :param Pet body: Pet object that needs to be added to the store (required)
-            :param _return_http_data_only: response data without head status
-                code and headers
-            :param _preload_content: if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            :param _request_timeout: timeout setting for this request. If one
-                number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-            :return: None
-                If the method is called asynchronously, returns the request
-                thread.
+            Args:
+                body (pet.Pet): Pet object that needs to be added to the store
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int): specifies the index of the server
+                    that we want to use.
+                    Default is 0.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                None
+                    If the method is called asynchronously, returns the request
+                    thread.
             """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
             kwargs['_return_http_data_only'] = kwargs.get(
                 '_return_http_data_only', True
             )
-            kwargs['body'] = body
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index', 0)
+            kwargs['body'] = \
+                body
             return self.call_with_http_info(**kwargs)
 
         self.add_pet = Endpoint(
@@ -99,7 +142,8 @@ class PetApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'body': 'Pet',
+                    'body':
+                        (pet.Pet,),
                 },
                 'attribute_map': {
                 },
@@ -120,33 +164,70 @@ class PetApi(object):
             callable=__add_pet
         )
 
-        def __delete_pet(self, pet_id, **kwargs):  # noqa: E501
+        def __delete_pet(
+            self,
+            pet_id,
+            **kwargs
+        ):
             """Deletes a pet  # noqa: E501
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
+
             >>> thread = api.delete_pet(pet_id, async_req=True)
             >>> result = thread.get()
 
-            :param async_req bool: execute request asynchronously
-            :param int pet_id: Pet id to delete (required)
-            :param str api_key:
-            :param _return_http_data_only: response data without head status
-                code and headers
-            :param _preload_content: if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            :param _request_timeout: timeout setting for this request. If one
-                number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-            :return: None
-                If the method is called asynchronously, returns the request
-                thread.
+            Args:
+                pet_id (int): Pet id to delete
+
+            Keyword Args:
+                api_key (str): [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int): specifies the index of the server
+                    that we want to use.
+                    Default is 0.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                None
+                    If the method is called asynchronously, returns the request
+                    thread.
             """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
             kwargs['_return_http_data_only'] = kwargs.get(
                 '_return_http_data_only', True
             )
-            kwargs['pet_id'] = pet_id
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index', 0)
+            kwargs['pet_id'] = \
+                pet_id
             return self.call_with_http_info(**kwargs)
 
         self.delete_pet = Endpoint(
@@ -181,8 +262,10 @@ class PetApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'pet_id': 'int',
-                    'api_key': 'str',
+                    'pet_id':
+                        (int,),
+                    'api_key':
+                        (str,),
                 },
                 'attribute_map': {
                     'pet_id': 'petId',
@@ -203,38 +286,75 @@ class PetApi(object):
             callable=__delete_pet
         )
 
-        def __find_pets_by_status(self, status, **kwargs):  # noqa: E501
+        def __find_pets_by_status(
+            self,
+            status,
+            **kwargs
+        ):
             """Finds Pets by status  # noqa: E501
 
             Multiple status values can be provided with comma separated strings  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
+
             >>> thread = api.find_pets_by_status(status, async_req=True)
             >>> result = thread.get()
 
-            :param async_req bool: execute request asynchronously
-            :param list[str] status: Status values that need to be considered for filter (required)
-            :param _return_http_data_only: response data without head status
-                code and headers
-            :param _preload_content: if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            :param _request_timeout: timeout setting for this request. If one
-                number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-            :return: list[Pet]
-                If the method is called asynchronously, returns the request
-                thread.
+            Args:
+                status ([str]): Status values that need to be considered for filter
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int): specifies the index of the server
+                    that we want to use.
+                    Default is 0.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                [pet.Pet]
+                    If the method is called asynchronously, returns the request
+                    thread.
             """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
             kwargs['_return_http_data_only'] = kwargs.get(
                 '_return_http_data_only', True
             )
-            kwargs['status'] = status
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index', 0)
+            kwargs['status'] = \
+                status
             return self.call_with_http_info(**kwargs)
 
         self.find_pets_by_status = Endpoint(
             settings={
-                'response_type': 'list[Pet]',
+                'response_type': ([pet.Pet],),
                 'auth': [
                     'petstore_auth'
                 ],
@@ -270,7 +390,8 @@ class PetApi(object):
                     },
                 },
                 'openapi_types': {
-                    'status': 'list[str]',
+                    'status':
+                        ([str],),
                 },
                 'attribute_map': {
                     'status': 'status',
@@ -293,38 +414,75 @@ class PetApi(object):
             callable=__find_pets_by_status
         )
 
-        def __find_pets_by_tags(self, tags, **kwargs):  # noqa: E501
+        def __find_pets_by_tags(
+            self,
+            tags,
+            **kwargs
+        ):
             """Finds Pets by tags  # noqa: E501
 
             Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
+
             >>> thread = api.find_pets_by_tags(tags, async_req=True)
             >>> result = thread.get()
 
-            :param async_req bool: execute request asynchronously
-            :param list[str] tags: Tags to filter by (required)
-            :param _return_http_data_only: response data without head status
-                code and headers
-            :param _preload_content: if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            :param _request_timeout: timeout setting for this request. If one
-                number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-            :return: list[Pet]
-                If the method is called asynchronously, returns the request
-                thread.
+            Args:
+                tags ([str]): Tags to filter by
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int): specifies the index of the server
+                    that we want to use.
+                    Default is 0.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                [pet.Pet]
+                    If the method is called asynchronously, returns the request
+                    thread.
             """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
             kwargs['_return_http_data_only'] = kwargs.get(
                 '_return_http_data_only', True
             )
-            kwargs['tags'] = tags
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index', 0)
+            kwargs['tags'] = \
+                tags
             return self.call_with_http_info(**kwargs)
 
         self.find_pets_by_tags = Endpoint(
             settings={
-                'response_type': 'list[Pet]',
+                'response_type': ([pet.Pet],),
                 'auth': [
                     'petstore_auth'
                 ],
@@ -353,7 +511,8 @@ class PetApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'tags': 'list[str]',
+                    'tags':
+                        ([str],),
                 },
                 'attribute_map': {
                     'tags': 'tags',
@@ -376,38 +535,75 @@ class PetApi(object):
             callable=__find_pets_by_tags
         )
 
-        def __get_pet_by_id(self, pet_id, **kwargs):  # noqa: E501
+        def __get_pet_by_id(
+            self,
+            pet_id,
+            **kwargs
+        ):
             """Find pet by ID  # noqa: E501
 
             Returns a single pet  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
+
             >>> thread = api.get_pet_by_id(pet_id, async_req=True)
             >>> result = thread.get()
 
-            :param async_req bool: execute request asynchronously
-            :param int pet_id: ID of pet to return (required)
-            :param _return_http_data_only: response data without head status
-                code and headers
-            :param _preload_content: if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            :param _request_timeout: timeout setting for this request. If one
-                number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-            :return: Pet
-                If the method is called asynchronously, returns the request
-                thread.
+            Args:
+                pet_id (int): ID of pet to return
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int): specifies the index of the server
+                    that we want to use.
+                    Default is 0.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                pet.Pet
+                    If the method is called asynchronously, returns the request
+                    thread.
             """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
             kwargs['_return_http_data_only'] = kwargs.get(
                 '_return_http_data_only', True
             )
-            kwargs['pet_id'] = pet_id
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index', 0)
+            kwargs['pet_id'] = \
+                pet_id
             return self.call_with_http_info(**kwargs)
 
         self.get_pet_by_id = Endpoint(
             settings={
-                'response_type': 'Pet',
+                'response_type': (pet.Pet,),
                 'auth': [
                     'api_key'
                 ],
@@ -436,7 +632,8 @@ class PetApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'pet_id': 'int',
+                    'pet_id':
+                        (int,),
                 },
                 'attribute_map': {
                     'pet_id': 'petId',
@@ -458,32 +655,69 @@ class PetApi(object):
             callable=__get_pet_by_id
         )
 
-        def __update_pet(self, body, **kwargs):  # noqa: E501
+        def __update_pet(
+            self,
+            body,
+            **kwargs
+        ):
             """Update an existing pet  # noqa: E501
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
+
             >>> thread = api.update_pet(body, async_req=True)
             >>> result = thread.get()
 
-            :param async_req bool: execute request asynchronously
-            :param Pet body: Pet object that needs to be added to the store (required)
-            :param _return_http_data_only: response data without head status
-                code and headers
-            :param _preload_content: if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            :param _request_timeout: timeout setting for this request. If one
-                number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-            :return: None
-                If the method is called asynchronously, returns the request
-                thread.
+            Args:
+                body (pet.Pet): Pet object that needs to be added to the store
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int): specifies the index of the server
+                    that we want to use.
+                    Default is 0.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                None
+                    If the method is called asynchronously, returns the request
+                    thread.
             """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
             kwargs['_return_http_data_only'] = kwargs.get(
                 '_return_http_data_only', True
             )
-            kwargs['body'] = body
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index', 0)
+            kwargs['body'] = \
+                body
             return self.call_with_http_info(**kwargs)
 
         self.update_pet = Endpoint(
@@ -517,7 +751,8 @@ class PetApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'body': 'Pet',
+                    'body':
+                        (pet.Pet,),
                 },
                 'attribute_map': {
                 },
@@ -538,34 +773,71 @@ class PetApi(object):
             callable=__update_pet
         )
 
-        def __update_pet_with_form(self, pet_id, **kwargs):  # noqa: E501
+        def __update_pet_with_form(
+            self,
+            pet_id,
+            **kwargs
+        ):
             """Updates a pet in the store with form data  # noqa: E501
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
+
             >>> thread = api.update_pet_with_form(pet_id, async_req=True)
             >>> result = thread.get()
 
-            :param async_req bool: execute request asynchronously
-            :param int pet_id: ID of pet that needs to be updated (required)
-            :param str name: Updated name of the pet
-            :param str status: Updated status of the pet
-            :param _return_http_data_only: response data without head status
-                code and headers
-            :param _preload_content: if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            :param _request_timeout: timeout setting for this request. If one
-                number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-            :return: None
-                If the method is called asynchronously, returns the request
-                thread.
+            Args:
+                pet_id (int): ID of pet that needs to be updated
+
+            Keyword Args:
+                name (str): Updated name of the pet. [optional]
+                status (str): Updated status of the pet. [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int): specifies the index of the server
+                    that we want to use.
+                    Default is 0.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                None
+                    If the method is called asynchronously, returns the request
+                    thread.
             """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
             kwargs['_return_http_data_only'] = kwargs.get(
                 '_return_http_data_only', True
             )
-            kwargs['pet_id'] = pet_id
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index', 0)
+            kwargs['pet_id'] = \
+                pet_id
             return self.call_with_http_info(**kwargs)
 
         self.update_pet_with_form = Endpoint(
@@ -601,9 +873,12 @@ class PetApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'pet_id': 'int',
-                    'name': 'str',
-                    'status': 'str',
+                    'pet_id':
+                        (int,),
+                    'name':
+                        (str,),
+                    'status':
+                        (str,),
                 },
                 'attribute_map': {
                     'pet_id': 'petId',
@@ -628,39 +903,77 @@ class PetApi(object):
             callable=__update_pet_with_form
         )
 
-        def __upload_file(self, pet_id, **kwargs):  # noqa: E501
+        def __upload_file(
+            self,
+            pet_id,
+            **kwargs
+        ):
             """uploads an image  # noqa: E501
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
+
             >>> thread = api.upload_file(pet_id, async_req=True)
             >>> result = thread.get()
 
-            :param async_req bool: execute request asynchronously
-            :param int pet_id: ID of pet to update (required)
-            :param str additional_metadata: Additional data to pass to server
-            :param file file: file to upload
-            :param _return_http_data_only: response data without head status
-                code and headers
-            :param _preload_content: if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            :param _request_timeout: timeout setting for this request. If one
-                number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-            :return: ApiResponse
-                If the method is called asynchronously, returns the request
-                thread.
+            Args:
+                pet_id (int): ID of pet to update
+
+            Keyword Args:
+                additional_metadata (str): Additional data to pass to server. [optional]
+                file (file_type): file to upload. [optional]
+                files ([file_type]): files to upload. [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int): specifies the index of the server
+                    that we want to use.
+                    Default is 0.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                api_response.ApiResponse
+                    If the method is called asynchronously, returns the request
+                    thread.
             """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
             kwargs['_return_http_data_only'] = kwargs.get(
                 '_return_http_data_only', True
             )
-            kwargs['pet_id'] = pet_id
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index', 0)
+            kwargs['pet_id'] = \
+                pet_id
             return self.call_with_http_info(**kwargs)
 
         self.upload_file = Endpoint(
             settings={
-                'response_type': 'ApiResponse',
+                'response_type': (api_response.ApiResponse,),
                 'auth': [
                     'petstore_auth'
                 ],
@@ -674,6 +987,7 @@ class PetApi(object):
                     'pet_id',
                     'additional_metadata',
                     'file',
+                    'files',
                 ],
                 'required': [
                     'pet_id',
@@ -691,21 +1005,29 @@ class PetApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'pet_id': 'int',
-                    'additional_metadata': 'str',
-                    'file': 'file',
+                    'pet_id':
+                        (int,),
+                    'additional_metadata':
+                        (str,),
+                    'file':
+                        (file_type,),
+                    'files':
+                        ([file_type],),
                 },
                 'attribute_map': {
                     'pet_id': 'petId',
                     'additional_metadata': 'additionalMetadata',
                     'file': 'file',
+                    'files': 'files',
                 },
                 'location_map': {
                     'pet_id': 'path',
                     'additional_metadata': 'form',
                     'file': 'form',
+                    'files': 'form',
                 },
                 'collection_format_map': {
+                    'files': 'csv',
                 }
             },
             headers_map={
@@ -720,40 +1042,79 @@ class PetApi(object):
             callable=__upload_file
         )
 
-        def __upload_file_with_required_file(self, pet_id, required_file, **kwargs):  # noqa: E501
+        def __upload_file_with_required_file(
+            self,
+            pet_id,
+            required_file,
+            **kwargs
+        ):
             """uploads an image (required)  # noqa: E501
 
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
+
             >>> thread = api.upload_file_with_required_file(pet_id, required_file, async_req=True)
             >>> result = thread.get()
 
-            :param async_req bool: execute request asynchronously
-            :param int pet_id: ID of pet to update (required)
-            :param file required_file: file to upload (required)
-            :param str additional_metadata: Additional data to pass to server
-            :param _return_http_data_only: response data without head status
-                code and headers
-            :param _preload_content: if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            :param _request_timeout: timeout setting for this request. If one
-                number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-            :return: ApiResponse
-                If the method is called asynchronously, returns the request
-                thread.
+            Args:
+                pet_id (int): ID of pet to update
+                required_file (file_type): file to upload
+
+            Keyword Args:
+                additional_metadata (str): Additional data to pass to server. [optional]
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int): specifies the index of the server
+                    that we want to use.
+                    Default is 0.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                api_response.ApiResponse
+                    If the method is called asynchronously, returns the request
+                    thread.
             """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
             kwargs['_return_http_data_only'] = kwargs.get(
                 '_return_http_data_only', True
             )
-            kwargs['pet_id'] = pet_id
-            kwargs['required_file'] = required_file
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index', 0)
+            kwargs['pet_id'] = \
+                pet_id
+            kwargs['required_file'] = \
+                required_file
             return self.call_with_http_info(**kwargs)
 
         self.upload_file_with_required_file = Endpoint(
             settings={
-                'response_type': 'ApiResponse',
+                'response_type': (api_response.ApiResponse,),
                 'auth': [
                     'petstore_auth'
                 ],
@@ -785,9 +1146,12 @@ class PetApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'pet_id': 'int',
-                    'required_file': 'file',
-                    'additional_metadata': 'str',
+                    'pet_id':
+                        (int,),
+                    'required_file':
+                        (file_type,),
+                    'additional_metadata':
+                        (str,),
                 },
                 'attribute_map': {
                     'pet_id': 'petId',
@@ -813,190 +1177,3 @@ class PetApi(object):
             api_client=api_client,
             callable=__upload_file_with_required_file
         )
-
-
-class Endpoint(object):
-    def __init__(self, settings=None, params_map=None, root_map=None,
-                 headers_map=None, api_client=None, callable=None):
-        """Creates an endpoint
-
-        Args:
-            settings (dict): see below key value pairs
-                'response_type' (str): response type
-                'auth' (list): a list of auth type keys
-                'endpoint_path' (str): the endpoint path
-                'operation_id' (str): endpoint string identifier
-                'http_method' (str): POST/PUT/PATCH/GET etc
-                'servers' (list): list of str servers that this endpoint is at
-            params_map (dict): see below key value pairs
-                'all' (list): list of str endpoint parameter names
-                'required' (list): list of required parameter names
-                'nullable' (list): list of nullable parameter names
-                'enum' (list): list of parameters with enum values
-                'validation' (list): list of parameters with validations
-            root_map
-                'validations' (dict): the dict mapping endpoint parameter tuple
-                    paths to their validation dictionaries
-                'allowed_values' (dict): the dict mapping endpoint parameter
-                    tuple paths to their allowed_values (enum) dictionaries
-                'openapi_types' (dict): param_name to openapi type
-                'attribute_map' (dict): param_name to camelCase name
-                'location_map' (dict): param_name to  'body', 'file', 'form',
-                    'header', 'path', 'query'
-                collection_format_map (dict): param_name to `csv` etc.
-            headers_map (dict): see below key value pairs
-                'accept' (list): list of Accept header strings
-                'content_type' (list): list of Content-Type header strings
-            api_client (ApiClient) api client instance
-            callable (function): the function which is invoked when the
-                Endpoint is called
-        """
-        self.settings = settings
-        self.params_map = params_map
-        self.params_map['all'].extend([
-            'async_req',
-            '_host_index',
-            '_preload_content',
-            '_request_timeout',
-            '_return_http_data_only'
-        ])
-        self.validations = root_map['validations']
-        self.allowed_values = root_map['allowed_values']
-        self.openapi_types = root_map['openapi_types']
-        self.attribute_map = root_map['attribute_map']
-        self.location_map = root_map['location_map']
-        self.collection_format_map = root_map['collection_format_map']
-        self.headers_map = headers_map
-        self.api_client = api_client
-        self.callable = callable
-
-    def __validate_inputs(self, kwargs):
-        for param in self.params_map['enum']:
-            if param in kwargs:
-                check_allowed_values(
-                    self.allowed_values,
-                    (param,),
-                    kwargs[param],
-                    self.validations
-                )
-
-        for param in self.params_map['validation']:
-            if param in kwargs:
-                check_validations(
-                    self.validations,
-                    (param,),
-                    kwargs[param]
-                )
-
-    def __gather_params(self, kwargs):
-        params = {
-            'body': None,
-            'collection_format': {},
-            'file': {},
-            'form': [],
-            'header': {},
-            'path': {},
-            'query': []
-        }
-
-        for param_name, param_value in six.iteritems(kwargs):
-            param_location = self.location_map.get(param_name)
-            if param_location:
-                if param_location == 'body':
-                    params['body'] = param_value
-                    continue
-                base_name = self.attribute_map[param_name]
-                if (param_location == 'form' and
-                        self.openapi_types[param_name] == 'file'):
-                    param_location = 'file'
-                elif param_location in {'form', 'query'}:
-                    param_value_full = (base_name, param_value)
-                    params[param_location].append(param_value_full)
-                if param_location not in {'form', 'query'}:
-                    params[param_location][base_name] = param_value
-                collection_format = self.collection_format_map.get(param_name)
-                if collection_format:
-                    params['collection_format'][base_name] = collection_format
-
-        return params
-
-    def __call__(self, *args, **kwargs):
-        """ This method is invoked when endpoints are called
-        Example:
-        pet_api = PetApi()
-        pet_api.add_pet  # this is an instance of the class Endpoint
-        pet_api.add_pet()  # this invokes pet_api.add_pet.__call__()
-        which then invokes the callable functions stored in that endpoint at
-        pet_api.add_pet.callable or self.callable in this class
-        """
-        return self.callable(self, *args, **kwargs)
-
-    def call_with_http_info(self, **kwargs):
-
-        if kwargs.get('_host_index') and self.settings['servers']:
-            _host_index = kwargs.get('_host_index')
-            try:
-                _host = self.settings['servers'][_host_index]
-            except IndexError:
-                raise ApiValueError(
-                    "Invalid host index. Must be 0 <= index < %s" %
-                    len(self.settings['servers'])
-                )
-        else:
-            try:
-                _host = self.settings['servers'][0]
-            except IndexError:
-                _host = None
-
-        for key, value in six.iteritems(kwargs):
-            if key not in self.params_map['all']:
-                raise ApiTypeError(
-                    "Got an unexpected parameter '%s'"
-                    " to method `%s`" %
-                    (key, self.settings['operation_id'])
-                )
-            if key not in self.params_map['nullable'] and value is None:
-                raise ApiValueError(
-                    "Value may not be None for non-nullable parameter `%s`"
-                    " when calling `%s`" %
-                    (key, self.settings['operation_id'])
-                )
-
-        for key in self.params_map['required']:
-            if key not in kwargs.keys():
-                raise ApiValueError(
-                    "Missing the required parameter `%s` when calling "
-                    "`%s`" % (key, self.settings['operation_id'])
-                )
-
-        self.__validate_inputs(kwargs)
-
-        params = self.__gather_params(kwargs)
-
-        accept_headers_list = self.headers_map['accept']
-        if accept_headers_list:
-            params['header']['Accept'] = self.api_client.select_header_accept(
-                accept_headers_list)
-
-        content_type_headers_list = self.headers_map['content_type']
-        if content_type_headers_list:
-            header_list = self.api_client.select_header_content_type(
-                content_type_headers_list)
-            params['header']['Content-Type'] = header_list
-
-        return self.api_client.call_api(
-            self.settings['endpoint_path'], self.settings['http_method'],
-            params['path'],
-            params['query'],
-            params['header'],
-            body=params['body'],
-            post_params=params['form'],
-            files=params['file'],
-            response_type=self.settings['response_type'],
-            auth_settings=self.settings['auth'],
-            async_req=kwargs.get('async_req'),
-            _return_http_data_only=kwargs.get('_return_http_data_only'),
-            _preload_content=kwargs.get('_preload_content', True),
-            _request_timeout=kwargs.get('_request_timeout'),
-            _host=_host,
-            collection_formats=params['collection_format'])

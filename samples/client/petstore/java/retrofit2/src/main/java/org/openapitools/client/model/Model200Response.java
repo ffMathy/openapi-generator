@@ -28,7 +28,7 @@ import java.io.IOException;
  * Model for testing model name starting with number
  */
 @ApiModel(description = "Model for testing model name starting with number")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Model200Response {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -57,7 +57,6 @@ public class Model200Response {
   }
 
 
-
   public void setName(Integer name) {
     this.name = name;
   }
@@ -79,7 +78,6 @@ public class Model200Response {
   public String getPropertyClass() {
     return propertyClass;
   }
-
 
 
   public void setPropertyClass(String propertyClass) {

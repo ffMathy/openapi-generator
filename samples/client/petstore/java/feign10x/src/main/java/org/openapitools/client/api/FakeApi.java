@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import feign.*;
 
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public interface FakeApi extends ApiClient.Api {
 
 
@@ -159,8 +159,8 @@ public interface FakeApi extends ApiClient.Api {
   Client testClientModel(Client body);
 
   /**
-   * Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
-   * Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
+   * Fake endpoint for testing various parameters  假端點  偽のエンドポイント  가짜 엔드 포인트
+   * Fake endpoint for testing various parameters  假端點  偽のエンドポイント  가짜 엔드 포인트
    * @param number None (required)
    * @param _double None (required)
    * @param patternWithoutDelimiter None (required)
@@ -407,7 +407,7 @@ public interface FakeApi extends ApiClient.Api {
       return this;
     }
     public TestQueryParameterCollectionFormatQueryParams http(final List<String> value) {
-      put("http", EncodingUtils.encodeCollection(value, "space"));
+      put("http", EncodingUtils.encodeCollection(value, "ssv"));
       return this;
     }
     public TestQueryParameterCollectionFormatQueryParams url(final List<String> value) {

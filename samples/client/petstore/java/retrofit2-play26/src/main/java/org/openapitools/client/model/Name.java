@@ -35,7 +35,7 @@ import javax.validation.Valid;
   Name.JSON_PROPERTY_PROPERTY,
   Name.JSON_PROPERTY_123NUMBER
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Name {
   public static final String JSON_PROPERTY_NAME = "name";
   private Integer name;
@@ -68,7 +68,6 @@ public class Name {
   public Integer getName() {
     return name;
   }
-
 
 
   public void setName(Integer name) {
@@ -110,7 +109,6 @@ public class Name {
   public String getProperty() {
     return property;
   }
-
 
 
   public void setProperty(String property) {

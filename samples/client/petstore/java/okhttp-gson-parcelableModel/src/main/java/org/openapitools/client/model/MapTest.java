@@ -32,7 +32,7 @@ import android.os.Parcel;
 /**
  * MapTest
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MapTest implements Parcelable {
   public static final String SERIALIZED_NAME_MAP_MAP_OF_STRING = "map_map_of_string";
   @SerializedName(SERIALIZED_NAME_MAP_MAP_OF_STRING)
@@ -126,7 +126,6 @@ public class MapTest implements Parcelable {
   }
 
 
-
   public void setMapMapOfString(Map<String, Map<String, String>> mapMapOfString) {
     this.mapMapOfString = mapMapOfString;
   }
@@ -156,7 +155,6 @@ public class MapTest implements Parcelable {
   public Map<String, InnerEnum> getMapOfEnumString() {
     return mapOfEnumString;
   }
-
 
 
   public void setMapOfEnumString(Map<String, InnerEnum> mapOfEnumString) {
@@ -190,7 +188,6 @@ public class MapTest implements Parcelable {
   }
 
 
-
   public void setDirectMap(Map<String, Boolean> directMap) {
     this.directMap = directMap;
   }
@@ -220,7 +217,6 @@ public class MapTest implements Parcelable {
   public Map<String, Boolean> getIndirectMap() {
     return indirectMap;
   }
-
 
 
   public void setIndirectMap(Map<String, Boolean> indirectMap) {

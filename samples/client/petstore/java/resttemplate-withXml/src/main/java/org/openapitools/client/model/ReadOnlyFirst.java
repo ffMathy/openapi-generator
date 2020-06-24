@@ -32,17 +32,17 @@ import javax.xml.bind.annotation.*;
   ReadOnlyFirst.JSON_PROPERTY_BAR,
   ReadOnlyFirst.JSON_PROPERTY_BAZ
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 @XmlRootElement(name = "ReadOnlyFirst")
 @XmlAccessorType(XmlAccessType.FIELD)
 @JacksonXmlRootElement(localName = "ReadOnlyFirst")
 public class ReadOnlyFirst {
-  @XmlElement(name = "bar")
   public static final String JSON_PROPERTY_BAR = "bar";
+  @XmlElement(name = "bar")
   private String bar;
 
-  @XmlElement(name = "baz")
   public static final String JSON_PROPERTY_BAZ = "baz";
+  @XmlElement(name = "baz")
   private String baz;
 
 
@@ -82,7 +82,6 @@ public class ReadOnlyFirst {
   public String getBaz() {
     return baz;
   }
-
 
 
   public void setBaz(String baz) {

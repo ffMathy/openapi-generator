@@ -1,22 +1,25 @@
 #pragma once
 
-#include "../client/OAIUserApi.h"
+#include "../client/PFXUserApi.h"
 
-using namespace OpenAPI;
+using namespace test_namespace;
 
-class UserApiTests: public QObject {
+class UserApiTests : public QObject {
     Q_OBJECT
 
-    OAIUserApi* getApi();
-    OAIUser createRandomUser();
+    PFXUser createRandomUser();
 
 private slots:
     void createUserTest();
     void createUsersWithArrayInputTest();
+    /*
     void createUsersWithListInputTest();
     void deleteUserTest();
     void getUserByNameTest();
+    */
     void loginUserTest();
     void logoutUserTest();
+    /*
     void updateUserTest();
+    */
 };

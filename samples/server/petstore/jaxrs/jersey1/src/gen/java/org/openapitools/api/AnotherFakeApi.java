@@ -29,7 +29,7 @@ import javax.validation.Valid;
 
 
 @io.swagger.annotations.Api(description = "the another-fake API")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen")
 public class AnotherFakeApi  {
    private final AnotherFakeApiService delegate = AnotherFakeApiServiceFactory.getAnotherFakeApi();
 
@@ -41,7 +41,7 @@ public class AnotherFakeApi  {
     @io.swagger.annotations.ApiResponses(value = { 
         @io.swagger.annotations.ApiResponse(code = 200, message = "successful operation", response = Client.class) })
     public Response call123testSpecialTags(
-        @ApiParam(value = "client model" ,required=true) @NotNull @Valid Client body,
+        @ApiParam(value = "client model", required = true) @NotNull @Valid  Client body,
         @Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.call123testSpecialTags(body,securityContext);

@@ -33,13 +33,13 @@ import javax.xml.bind.annotation.*;
 @JsonPropertyOrder({
   AdditionalPropertiesAnyType.JSON_PROPERTY_NAME
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 @XmlRootElement(name = "AdditionalPropertiesAnyType")
 @XmlAccessorType(XmlAccessType.FIELD)
 @JacksonXmlRootElement(localName = "AdditionalPropertiesAnyType")
 public class AdditionalPropertiesAnyType extends HashMap<String, Object> {
-  @XmlElement(name = "name")
   public static final String JSON_PROPERTY_NAME = "name";
+  @XmlElement(name = "name")
   private String name;
 
 
@@ -62,7 +62,6 @@ public class AdditionalPropertiesAnyType extends HashMap<String, Object> {
   public String getName() {
     return name;
   }
-
 
 
   public void setName(String name) {

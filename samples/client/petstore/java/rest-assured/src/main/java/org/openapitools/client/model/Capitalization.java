@@ -23,11 +23,14 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
+import org.hibernate.validator.constraints.*;
 
 /**
  * Capitalization
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Capitalization {
   public static final String SERIALIZED_NAME_SMALL_CAMEL = "smallCamel";
   @SerializedName(SERIALIZED_NAME_SMALL_CAMEL)
@@ -72,7 +75,6 @@ public class Capitalization {
   }
 
 
-
   public void setSmallCamel(String smallCamel) {
     this.smallCamel = smallCamel;
   }
@@ -94,7 +96,6 @@ public class Capitalization {
   public String getCapitalCamel() {
     return capitalCamel;
   }
-
 
 
   public void setCapitalCamel(String capitalCamel) {
@@ -120,7 +121,6 @@ public class Capitalization {
   }
 
 
-
   public void setSmallSnake(String smallSnake) {
     this.smallSnake = smallSnake;
   }
@@ -142,7 +142,6 @@ public class Capitalization {
   public String getCapitalSnake() {
     return capitalSnake;
   }
-
 
 
   public void setCapitalSnake(String capitalSnake) {
@@ -168,7 +167,6 @@ public class Capitalization {
   }
 
 
-
   public void setScAETHFlowPoints(String scAETHFlowPoints) {
     this.scAETHFlowPoints = scAETHFlowPoints;
   }
@@ -190,7 +188,6 @@ public class Capitalization {
   public String getATTNAME() {
     return ATT_NAME;
   }
-
 
 
   public void setATTNAME(String ATT_NAME) {

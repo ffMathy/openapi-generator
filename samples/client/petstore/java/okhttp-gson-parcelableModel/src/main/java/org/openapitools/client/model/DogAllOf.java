@@ -29,7 +29,7 @@ import android.os.Parcel;
 /**
  * DogAllOf
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class DogAllOf implements Parcelable {
   public static final String SERIALIZED_NAME_BREED = "breed";
   @SerializedName(SERIALIZED_NAME_BREED)
@@ -54,7 +54,6 @@ public class DogAllOf implements Parcelable {
   public String getBreed() {
     return breed;
   }
-
 
 
   public void setBreed(String breed) {

@@ -38,7 +38,7 @@ import javax.validation.Valid;
   TypeHolderDefault.JSON_PROPERTY_BOOL_ITEM,
   TypeHolderDefault.JSON_PROPERTY_ARRAY_ITEM
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TypeHolderDefault {
   public static final String JSON_PROPERTY_STRING_ITEM = "string_item";
   private String stringItem = "what";
@@ -76,7 +76,6 @@ public class TypeHolderDefault {
   }
 
 
-
   public void setStringItem(String stringItem) {
     this.stringItem = stringItem;
   }
@@ -101,7 +100,6 @@ public class TypeHolderDefault {
   public BigDecimal getNumberItem() {
     return numberItem;
   }
-
 
 
   public void setNumberItem(BigDecimal numberItem) {
@@ -129,7 +127,6 @@ public class TypeHolderDefault {
   }
 
 
-
   public void setIntegerItem(Integer integerItem) {
     this.integerItem = integerItem;
   }
@@ -153,7 +150,6 @@ public class TypeHolderDefault {
   public Boolean getBoolItem() {
     return boolItem;
   }
-
 
 
   public void setBoolItem(Boolean boolItem) {
@@ -184,7 +180,6 @@ public class TypeHolderDefault {
   public List<Integer> getArrayItem() {
     return arrayItem;
   }
-
 
 
   public void setArrayItem(List<Integer> arrayItem) {

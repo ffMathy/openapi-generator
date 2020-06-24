@@ -25,25 +25,27 @@ import kotlinx.serialization.*
 import kotlinx.serialization.internal.StringDescriptor
 
 class UserApi @UseExperimental(UnstableDefault::class) constructor(
-        baseUrl: kotlin.String = "http://petstore.swagger.io:80/v2",
-        httpClientEngine: HttpClientEngine? = null,
-        serializer: KotlinxSerializer)
-    : ApiClient(baseUrl, httpClientEngine, serializer) {
+    baseUrl: kotlin.String = "http://petstore.swagger.io:80/v2",
+    httpClientEngine: HttpClientEngine? = null,
+    serializer: KotlinxSerializer
+) : ApiClient(baseUrl, httpClientEngine, serializer) {
 
     @UseExperimental(UnstableDefault::class)
     constructor(
         baseUrl: kotlin.String = "http://petstore.swagger.io:80/v2",
         httpClientEngine: HttpClientEngine? = null,
-        jsonConfiguration: JsonConfiguration = JsonConfiguration.Default)
-    : this(baseUrl, httpClientEngine, KotlinxSerializer(Json(jsonConfiguration)))
+        jsonConfiguration: JsonConfiguration = JsonConfiguration.Default
+    ) : this(baseUrl, httpClientEngine, KotlinxSerializer(Json(jsonConfiguration)))
 
     /**
-    * Create user
-    * This can only be done by the logged in user.
-    * @param user Created user object 
-    * @return void
-    */
-    suspend fun createUser(user: User) : HttpResponse<Unit> {
+     * Create user
+     * This can only be done by the logged in user.
+     * @param user Created user object 
+     * @return void
+     */
+    suspend fun createUser(user: User): HttpResponse<Unit> {
+
+        val localVariableAuthNames = listOf<String>()
 
         val localVariableBody = user
 
@@ -60,21 +62,24 @@ class UserApi @UseExperimental(UnstableDefault::class) constructor(
 
         return jsonRequest(
             localVariableConfig,
-            localVariableBody
+            localVariableBody,
+            localVariableAuthNames
         ).wrap()
     }
 
-    
+
 
     /**
-    * Creates list of users with given input array
-    * 
-    * @param user List of user object 
-    * @return void
-    */
-    suspend fun createUsersWithArrayInput(user: kotlin.Array<User>) : HttpResponse<Unit> {
+     * Creates list of users with given input array
+     * 
+     * @param user List of user object 
+     * @return void
+     */
+    suspend fun createUsersWithArrayInput(user: kotlin.collections.List<User>): HttpResponse<Unit> {
 
-        val localVariableBody = CreateUsersWithArrayInputRequest(user.asList())
+        val localVariableAuthNames = listOf<String>()
+
+        val localVariableBody = CreateUsersWithArrayInputRequest(user)
 
         val localVariableQuery = mutableMapOf<String, List<String>>()
 
@@ -89,30 +94,33 @@ class UserApi @UseExperimental(UnstableDefault::class) constructor(
 
         return jsonRequest(
             localVariableConfig,
-            localVariableBody
+            localVariableBody,
+            localVariableAuthNames
         ).wrap()
     }
 
     @Serializable
-private class CreateUsersWithArrayInputRequest(val value: List<User>) {
-    @Serializer(CreateUsersWithArrayInputRequest::class)
-    companion object : KSerializer<CreateUsersWithArrayInputRequest> {
-        private val serializer: KSerializer<List<User>> = User.serializer().list
-            override val descriptor = StringDescriptor.withName("CreateUsersWithArrayInputRequest")
-            override fun serialize(encoder: Encoder, obj: CreateUsersWithArrayInputRequest) = serializer.serialize(encoder, obj.value)
-            override fun deserialize(decoder: Decoder) = CreateUsersWithArrayInputRequest(serializer.deserialize(decoder))
+    private class CreateUsersWithArrayInputRequest(val value: List<User>) {
+        @Serializer(CreateUsersWithArrayInputRequest::class)
+        companion object : KSerializer<CreateUsersWithArrayInputRequest> {
+            private val serializer: KSerializer<List<User>> = User.serializer().list
+                override val descriptor = StringDescriptor.withName("CreateUsersWithArrayInputRequest")
+                override fun serialize(encoder: Encoder, obj: CreateUsersWithArrayInputRequest) = serializer.serialize(encoder, obj.value)
+                override fun deserialize(decoder: Decoder) = CreateUsersWithArrayInputRequest(serializer.deserialize(decoder))
+        }
     }
-}
 
     /**
-    * Creates list of users with given input array
-    * 
-    * @param user List of user object 
-    * @return void
-    */
-    suspend fun createUsersWithListInput(user: kotlin.Array<User>) : HttpResponse<Unit> {
+     * Creates list of users with given input array
+     * 
+     * @param user List of user object 
+     * @return void
+     */
+    suspend fun createUsersWithListInput(user: kotlin.collections.List<User>): HttpResponse<Unit> {
 
-        val localVariableBody = CreateUsersWithListInputRequest(user.asList())
+        val localVariableAuthNames = listOf<String>()
+
+        val localVariableBody = CreateUsersWithListInputRequest(user)
 
         val localVariableQuery = mutableMapOf<String, List<String>>()
 
@@ -127,28 +135,31 @@ private class CreateUsersWithArrayInputRequest(val value: List<User>) {
 
         return jsonRequest(
             localVariableConfig,
-            localVariableBody
+            localVariableBody,
+            localVariableAuthNames
         ).wrap()
     }
 
     @Serializable
-private class CreateUsersWithListInputRequest(val value: List<User>) {
-    @Serializer(CreateUsersWithListInputRequest::class)
-    companion object : KSerializer<CreateUsersWithListInputRequest> {
-        private val serializer: KSerializer<List<User>> = User.serializer().list
-            override val descriptor = StringDescriptor.withName("CreateUsersWithListInputRequest")
-            override fun serialize(encoder: Encoder, obj: CreateUsersWithListInputRequest) = serializer.serialize(encoder, obj.value)
-            override fun deserialize(decoder: Decoder) = CreateUsersWithListInputRequest(serializer.deserialize(decoder))
+    private class CreateUsersWithListInputRequest(val value: List<User>) {
+        @Serializer(CreateUsersWithListInputRequest::class)
+        companion object : KSerializer<CreateUsersWithListInputRequest> {
+            private val serializer: KSerializer<List<User>> = User.serializer().list
+                override val descriptor = StringDescriptor.withName("CreateUsersWithListInputRequest")
+                override fun serialize(encoder: Encoder, obj: CreateUsersWithListInputRequest) = serializer.serialize(encoder, obj.value)
+                override fun deserialize(decoder: Decoder) = CreateUsersWithListInputRequest(serializer.deserialize(decoder))
+        }
     }
-}
 
     /**
-    * Delete user
-    * This can only be done by the logged in user.
-    * @param username The name that needs to be deleted 
-    * @return void
-    */
-    suspend fun deleteUser(username: kotlin.String) : HttpResponse<Unit> {
+     * Delete user
+     * This can only be done by the logged in user.
+     * @param username The name that needs to be deleted 
+     * @return void
+     */
+    suspend fun deleteUser(username: kotlin.String): HttpResponse<Unit> {
+
+        val localVariableAuthNames = listOf<String>()
 
         val localVariableBody = 
             io.ktor.client.utils.EmptyContent
@@ -159,26 +170,29 @@ private class CreateUsersWithListInputRequest(val value: List<User>) {
 
         val localVariableConfig = RequestConfig(
             RequestMethod.DELETE,
-            "/user/{username}".replace("{"+"username"+"}", "$username"),
+            "/user/{username}".replace("{" + "username" + "}", "$username"),
             query = localVariableQuery,
             headers = localVariableHeaders
         )
 
         return request(
             localVariableConfig,
-            localVariableBody
+            localVariableBody,
+            localVariableAuthNames
         ).wrap()
     }
 
 
     /**
-    * Get user by user name
-    * 
-    * @param username The name that needs to be fetched. Use user1 for testing. 
-    * @return User
-    */
+     * Get user by user name
+     * 
+     * @param username The name that needs to be fetched. Use user1 for testing. 
+     * @return User
+     */
     @Suppress("UNCHECKED_CAST")
-    suspend fun getUserByName(username: kotlin.String) : HttpResponse<User> {
+    suspend fun getUserByName(username: kotlin.String): HttpResponse<User> {
+
+        val localVariableAuthNames = listOf<String>()
 
         val localVariableBody = 
             io.ktor.client.utils.EmptyContent
@@ -189,27 +203,30 @@ private class CreateUsersWithListInputRequest(val value: List<User>) {
 
         val localVariableConfig = RequestConfig(
             RequestMethod.GET,
-            "/user/{username}".replace("{"+"username"+"}", "$username"),
+            "/user/{username}".replace("{" + "username" + "}", "$username"),
             query = localVariableQuery,
             headers = localVariableHeaders
         )
 
         return request(
             localVariableConfig,
-            localVariableBody
+            localVariableBody,
+            localVariableAuthNames
         ).wrap()
     }
 
 
     /**
-    * Logs user into the system
-    * 
-    * @param username The user name for login 
-    * @param password The password for login in clear text 
-    * @return kotlin.String
-    */
+     * Logs user into the system
+     * 
+     * @param username The user name for login 
+     * @param password The password for login in clear text 
+     * @return kotlin.String
+     */
     @Suppress("UNCHECKED_CAST")
-    suspend fun loginUser(username: kotlin.String, password: kotlin.String) : HttpResponse<kotlin.String> {
+    suspend fun loginUser(username: kotlin.String, password: kotlin.String): HttpResponse<kotlin.String> {
+
+        val localVariableAuthNames = listOf<String>()
 
         val localVariableBody = 
             io.ktor.client.utils.EmptyContent
@@ -229,17 +246,20 @@ private class CreateUsersWithListInputRequest(val value: List<User>) {
 
         return request(
             localVariableConfig,
-            localVariableBody
+            localVariableBody,
+            localVariableAuthNames
         ).wrap()
     }
 
 
     /**
-    * Logs out current logged in user session
-    * 
-    * @return void
-    */
-    suspend fun logoutUser() : HttpResponse<Unit> {
+     * Logs out current logged in user session
+     * 
+     * @return void
+     */
+    suspend fun logoutUser(): HttpResponse<Unit> {
+
+        val localVariableAuthNames = listOf<String>()
 
         val localVariableBody = 
             io.ktor.client.utils.EmptyContent
@@ -257,19 +277,22 @@ private class CreateUsersWithListInputRequest(val value: List<User>) {
 
         return request(
             localVariableConfig,
-            localVariableBody
+            localVariableBody,
+            localVariableAuthNames
         ).wrap()
     }
 
 
     /**
-    * Updated user
-    * This can only be done by the logged in user.
-    * @param username name that need to be deleted 
-    * @param user Updated user object 
-    * @return void
-    */
-    suspend fun updateUser(username: kotlin.String, user: User) : HttpResponse<Unit> {
+     * Updated user
+     * This can only be done by the logged in user.
+     * @param username name that need to be deleted 
+     * @param user Updated user object 
+     * @return void
+     */
+    suspend fun updateUser(username: kotlin.String, user: User): HttpResponse<Unit> {
+
+        val localVariableAuthNames = listOf<String>()
 
         val localVariableBody = user
 
@@ -279,18 +302,19 @@ private class CreateUsersWithListInputRequest(val value: List<User>) {
 
         val localVariableConfig = RequestConfig(
             RequestMethod.PUT,
-            "/user/{username}".replace("{"+"username"+"}", "$username"),
+            "/user/{username}".replace("{" + "username" + "}", "$username"),
             query = localVariableQuery,
             headers = localVariableHeaders
         )
 
         return jsonRequest(
             localVariableConfig,
-            localVariableBody
+            localVariableBody,
+            localVariableAuthNames
         ).wrap()
     }
 
-    
+
 
 
     companion object {

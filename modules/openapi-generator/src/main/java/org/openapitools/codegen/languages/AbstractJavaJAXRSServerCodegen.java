@@ -6,7 +6,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0
+ *     https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -201,6 +201,8 @@ public abstract class AbstractJavaJAXRSServerCodegen extends AbstractJavaCodegen
 
                         if ("array".equals(resp.containerType)) {
                             resp.containerType = "List";
+                        } else if ("set".equals(resp.containerType)) {
+                            resp.containerType = "Set";
                         } else if ("map".equals(resp.containerType)) {
                             resp.containerType = "Map";
                         }
@@ -216,6 +218,8 @@ public abstract class AbstractJavaJAXRSServerCodegen extends AbstractJavaCodegen
 
                 if ("array".equals(operation.returnContainer)) {
                     operation.returnContainer = "List";
+                } else if ("set".equals(operation.returnContainer)) {
+                    operation.returnContainer = "Set";
                 } else if ("map".equals(operation.returnContainer)) {
                     operation.returnContainer = "Map";
                 }
@@ -244,11 +248,10 @@ public abstract class AbstractJavaJAXRSServerCodegen extends AbstractJavaCodegen
     @Override
     public String toApiName(final String name) {
         String computed = name;
-        if (computed.length() == 0) {
-            return "DefaultApi";
+        if (computed.length() > 0) {
+            computed = sanitizeName(computed);
         }
-        computed = sanitizeName(computed);
-        return camelize(computed) + "Api";
+         return super.toApiName(computed);
     }
 
     @Override

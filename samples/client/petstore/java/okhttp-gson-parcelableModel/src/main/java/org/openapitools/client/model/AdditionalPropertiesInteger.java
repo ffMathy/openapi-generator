@@ -31,7 +31,7 @@ import android.os.Parcel;
 /**
  * AdditionalPropertiesInteger
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AdditionalPropertiesInteger extends HashMap<String, Integer> implements Parcelable {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -57,7 +57,6 @@ public class AdditionalPropertiesInteger extends HashMap<String, Integer> implem
   public String getName() {
     return name;
   }
-
 
 
   public void setName(String name) {

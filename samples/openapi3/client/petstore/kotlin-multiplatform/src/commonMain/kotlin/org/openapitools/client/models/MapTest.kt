@@ -14,6 +14,7 @@ package org.openapitools.client.models
 
 import kotlinx.serialization.*
 import kotlinx.serialization.internal.CommonEnumSerializer
+
 /**
  * 
  * @param mapMapOfString 
@@ -23,27 +24,22 @@ import kotlinx.serialization.internal.CommonEnumSerializer
  */
 @Serializable
 data class MapTest (
-    @SerialName(value = "mapMapOfString") val mapMapOfString: kotlin.collections.Map<kotlin.String, kotlin.collections.Map<kotlin.String, kotlin.String>>? = null,
-    @SerialName(value = "mapOfEnumString") val mapOfEnumString: MapTest.MapOfEnumString? = null,
-    @SerialName(value = "directMap") val directMap: kotlin.collections.Map<kotlin.String, kotlin.Boolean>? = null,
-    @SerialName(value = "indirectMap") val indirectMap: kotlin.collections.Map<kotlin.String, kotlin.Boolean>? = null
-)
-{
+    @SerialName(value = "map_map_of_string") val mapMapOfString: kotlin.collections.Map<kotlin.String, kotlin.collections.Map<kotlin.String, kotlin.String>>? = null,
+    @SerialName(value = "map_of_enum_string") val mapOfEnumString: MapTest.MapOfEnumString? = null,
+    @SerialName(value = "direct_map") val directMap: kotlin.collections.Map<kotlin.String, kotlin.Boolean>? = null,
+    @SerialName(value = "indirect_map") val indirectMap: kotlin.collections.Map<kotlin.String, kotlin.Boolean>? = null
+) {
 
     /**
     * 
     * Values: uPPER,lower
     */
     @Serializable(with = MapOfEnumString.Serializer::class)
-    enum class MapOfEnumString(val value: kotlin.collections.Map<kotlin.String, kotlin.String>){
-    
+    enum class MapOfEnumString(val value: kotlin.String){
         uPPER("UPPER"),
-    
         lower("lower");
-    
 
-        object Serializer : CommonEnumSerializer<MapOfEnumString>("MapOfEnumString", values(), values().map { it.value }.toTypedArray())
+        object Serializer : CommonEnumSerializer<MapOfEnumString>("MapOfEnumString", values(), values().map { it.value.toString() }.toTypedArray())
     }
-
 }
 

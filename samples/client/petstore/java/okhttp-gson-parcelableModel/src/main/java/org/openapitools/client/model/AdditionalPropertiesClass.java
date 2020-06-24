@@ -33,7 +33,7 @@ import android.os.Parcel;
 /**
  * AdditionalPropertiesClass
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AdditionalPropertiesClass implements Parcelable {
   public static final String SERIALIZED_NAME_MAP_STRING = "map_string";
   @SerializedName(SERIALIZED_NAME_MAP_STRING)
@@ -108,7 +108,6 @@ public class AdditionalPropertiesClass implements Parcelable {
   }
 
 
-
   public void setMapString(Map<String, String> mapString) {
     this.mapString = mapString;
   }
@@ -138,7 +137,6 @@ public class AdditionalPropertiesClass implements Parcelable {
   public Map<String, BigDecimal> getMapNumber() {
     return mapNumber;
   }
-
 
 
   public void setMapNumber(Map<String, BigDecimal> mapNumber) {
@@ -172,7 +170,6 @@ public class AdditionalPropertiesClass implements Parcelable {
   }
 
 
-
   public void setMapInteger(Map<String, Integer> mapInteger) {
     this.mapInteger = mapInteger;
   }
@@ -202,7 +199,6 @@ public class AdditionalPropertiesClass implements Parcelable {
   public Map<String, Boolean> getMapBoolean() {
     return mapBoolean;
   }
-
 
 
   public void setMapBoolean(Map<String, Boolean> mapBoolean) {
@@ -236,7 +232,6 @@ public class AdditionalPropertiesClass implements Parcelable {
   }
 
 
-
   public void setMapArrayInteger(Map<String, List<Integer>> mapArrayInteger) {
     this.mapArrayInteger = mapArrayInteger;
   }
@@ -266,7 +261,6 @@ public class AdditionalPropertiesClass implements Parcelable {
   public Map<String, List<Object>> getMapArrayAnytype() {
     return mapArrayAnytype;
   }
-
 
 
   public void setMapArrayAnytype(Map<String, List<Object>> mapArrayAnytype) {
@@ -300,7 +294,6 @@ public class AdditionalPropertiesClass implements Parcelable {
   }
 
 
-
   public void setMapMapString(Map<String, Map<String, String>> mapMapString) {
     this.mapMapString = mapMapString;
   }
@@ -332,7 +325,6 @@ public class AdditionalPropertiesClass implements Parcelable {
   }
 
 
-
   public void setMapMapAnytype(Map<String, Map<String, Object>> mapMapAnytype) {
     this.mapMapAnytype = mapMapAnytype;
   }
@@ -354,7 +346,6 @@ public class AdditionalPropertiesClass implements Parcelable {
   public Object getAnytype1() {
     return anytype1;
   }
-
 
 
   public void setAnytype1(Object anytype1) {
@@ -380,7 +371,6 @@ public class AdditionalPropertiesClass implements Parcelable {
   }
 
 
-
   public void setAnytype2(Object anytype2) {
     this.anytype2 = anytype2;
   }
@@ -402,7 +392,6 @@ public class AdditionalPropertiesClass implements Parcelable {
   public Object getAnytype3() {
     return anytype3;
   }
-
 
 
   public void setAnytype3(Object anytype3) {
@@ -492,9 +481,9 @@ public class AdditionalPropertiesClass implements Parcelable {
     mapArrayAnytype = (Map<String, List<Object>>)in.readValue(List.class.getClassLoader());
     mapMapString = (Map<String, Map<String, String>>)in.readValue(Map.class.getClassLoader());
     mapMapAnytype = (Map<String, Map<String, Object>>)in.readValue(Map.class.getClassLoader());
-    anytype1 = (Object)in.readValue(.class.getClassLoader());
-    anytype2 = (Object)in.readValue(.class.getClassLoader());
-    anytype3 = (Object)in.readValue(.class.getClassLoader());
+    anytype1 = (Object)in.readValue(null);
+    anytype2 = (Object)in.readValue(null);
+    anytype3 = (Object)in.readValue(null);
   }
 
   public int describeContents() {

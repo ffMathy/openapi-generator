@@ -3,6 +3,7 @@
 /**
  * OpenAPI Petstore
  * This spec is mainly for testing Petstore server and contains fake endpoints, models. Please do not use this for any other purpose. Special characters: \" \\
+ * PHP version 7.1.3
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -35,8 +36,8 @@ $router->patch('/v2/another-fake/dummy', 'AnotherFakeApi@call123TestSpecialTags'
 $router->patch('/v2/fake', 'FakeApi@testClientModel');
 /**
  * post testEndpointParameters
- * Summary: Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트
- * Notes: Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트
+ * Summary: Fake endpoint for testing various parameters  假端點  偽のエンドポイント  가짜 엔드 포인트
+ * Notes: Fake endpoint for testing various parameters  假端點  偽のエンドポイント  가짜 엔드 포인트
  */
 $router->post('/v2/fake', 'FakeApi@testEndpointParameters');
 /**

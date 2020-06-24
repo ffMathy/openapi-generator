@@ -14,6 +14,7 @@ package org.openapitools.client.models
 
 import kotlinx.serialization.*
 import kotlinx.serialization.internal.CommonEnumSerializer
+
 /**
  * 
  * @param myNumber 
@@ -22,8 +23,8 @@ import kotlinx.serialization.internal.CommonEnumSerializer
  */
 @Serializable
 data class OuterComposite (
-    @SerialName(value = "myNumber") val myNumber: kotlin.Double? = null,
-    @SerialName(value = "myString") val myString: kotlin.String? = null,
-    @SerialName(value = "myBoolean") val myBoolean: kotlin.Boolean? = null
+    @SerialName(value = "my_number") val myNumber: kotlin.Double? = null,
+    @SerialName(value = "my_string") val myString: kotlin.String? = null,
+    @SerialName(value = "my_boolean") val myBoolean: kotlin.Boolean? = null
 )
 

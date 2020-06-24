@@ -37,7 +37,7 @@ import javax.validation.Valid;
   MapTest.JSON_PROPERTY_DIRECT_MAP,
   MapTest.JSON_PROPERTY_INDIRECT_MAP
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MapTest {
   public static final String JSON_PROPERTY_MAP_MAP_OF_STRING = "map_map_of_string";
   private Map<String, Map<String, String>> mapMapOfString = null;
@@ -116,7 +116,6 @@ public class MapTest {
   }
 
 
-
   public void setMapMapOfString(Map<String, Map<String, String>> mapMapOfString) {
     this.mapMapOfString = mapMapOfString;
   }
@@ -148,7 +147,6 @@ public class MapTest {
   public Map<String, InnerEnum> getMapOfEnumString() {
     return mapOfEnumString;
   }
-
 
 
   public void setMapOfEnumString(Map<String, InnerEnum> mapOfEnumString) {
@@ -184,7 +182,6 @@ public class MapTest {
   }
 
 
-
   public void setDirectMap(Map<String, Boolean> directMap) {
     this.directMap = directMap;
   }
@@ -216,7 +213,6 @@ public class MapTest {
   public Map<String, Boolean> getIndirectMap() {
     return indirectMap;
   }
-
 
 
   public void setIndirectMap(Map<String, Boolean> indirectMap) {

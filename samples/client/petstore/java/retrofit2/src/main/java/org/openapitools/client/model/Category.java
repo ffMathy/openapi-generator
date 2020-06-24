@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * Category
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Category {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -56,7 +56,6 @@ public class Category {
   }
 
 
-
   public void setId(Long id) {
     this.id = id;
   }
@@ -77,7 +76,6 @@ public class Category {
   public String getName() {
     return name;
   }
-
 
 
   public void setName(String name) {

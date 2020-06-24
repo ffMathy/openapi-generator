@@ -14,6 +14,7 @@ package org.openapitools.client.models
 
 import kotlinx.serialization.*
 import kotlinx.serialization.internal.CommonEnumSerializer
+
 /**
  * 
  * @param enumFormStringArray Form parameter enum test (string array)
@@ -22,11 +23,10 @@ import kotlinx.serialization.internal.CommonEnumSerializer
 @Serializable
 data class InlineObject2 (
     /* Form parameter enum test (string array) */
-    @SerialName(value = "enumFormStringArray") val enumFormStringArray: kotlin.Array<InlineObject2.EnumFormStringArray>? = null,
+    @SerialName(value = "enum_form_string_array") val enumFormStringArray: kotlin.collections.List<InlineObject2.EnumFormStringArray>? = null,
     /* Form parameter enum test (string) */
-    @SerialName(value = "enumFormString") val enumFormString: InlineObject2.EnumFormString? = null
-)
-{
+    @SerialName(value = "enum_form_string") val enumFormString: InlineObject2.EnumFormString? = null
+) {
 
     /**
     * Form parameter enum test (string array)
@@ -34,31 +34,22 @@ data class InlineObject2 (
     */
     @Serializable(with = EnumFormStringArray.Serializer::class)
     enum class EnumFormStringArray(val value: kotlin.String){
-    
         greaterThan(">"),
-    
         dollar("$");
-    
 
-        object Serializer : CommonEnumSerializer<EnumFormStringArray>("EnumFormStringArray", values(), values().map { it.value }.toTypedArray())
+        object Serializer : CommonEnumSerializer<EnumFormStringArray>("EnumFormStringArray", values(), values().map { it.value.toString() }.toTypedArray())
     }
-
     /**
     * Form parameter enum test (string)
     * Values: abc,minusEfg,leftParenthesisXyzRightParenthesis
     */
     @Serializable(with = EnumFormString.Serializer::class)
     enum class EnumFormString(val value: kotlin.String){
-    
         abc("_abc"),
-    
         minusEfg("-efg"),
-    
         leftParenthesisXyzRightParenthesis("(xyz)");
-    
 
-        object Serializer : CommonEnumSerializer<EnumFormString>("EnumFormString", values(), values().map { it.value }.toTypedArray())
+        object Serializer : CommonEnumSerializer<EnumFormString>("EnumFormString", values(), values().map { it.value.toString() }.toTypedArray())
     }
-
 }
 

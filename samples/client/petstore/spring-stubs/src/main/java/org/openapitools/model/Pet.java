@@ -18,7 +18,7 @@ import javax.validation.constraints.*;
  * A pet for sale in the pet store
  */
 @ApiModel(description = "A pet for sale in the pet store")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class Pet   {
   @JsonProperty("id")
   private Long id;
@@ -53,8 +53,12 @@ public class Pet   {
       this.value = value;
     }
 
-    @Override
     @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
     public String toString() {
       return String.valueOf(value);
     }

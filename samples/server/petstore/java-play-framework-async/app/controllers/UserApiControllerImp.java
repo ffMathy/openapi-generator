@@ -7,9 +7,10 @@ import play.mvc.Http;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.io.FileInputStream;
 import javax.validation.constraints.*;
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen")
 public class UserApiControllerImp implements UserApiControllerImpInterface {
     @Override
     public void createUser(User body) throws Exception {
@@ -32,15 +33,19 @@ public class UserApiControllerImp implements UserApiControllerImpInterface {
     }
 
     @Override
-    public User getUserByName(String username) throws Exception {
+    public CompletionStage<User> getUserByName(String username) throws Exception {
         //Do your magic!!!
-        return new User();
+        return CompletableFuture.supplyAsync(() -> {
+           return new User();
+        });
     }
 
     @Override
-    public String loginUser( @NotNull String username,  @NotNull String password) throws Exception {
+    public CompletionStage<String> loginUser( @NotNull String username,  @NotNull String password) throws Exception {
         //Do your magic!!!
-        return new String();
+        return CompletableFuture.supplyAsync(() -> {
+           return new String();
+        });
     }
 
     @Override

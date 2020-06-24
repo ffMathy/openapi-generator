@@ -32,7 +32,7 @@ import javax.validation.Valid;
   ReadOnlyFirst.JSON_PROPERTY_BAR,
   ReadOnlyFirst.JSON_PROPERTY_BAZ
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ReadOnlyFirst {
   public static final String JSON_PROPERTY_BAR = "bar";
   private String bar;
@@ -75,7 +75,6 @@ public class ReadOnlyFirst {
   public String getBaz() {
     return baz;
   }
-
 
 
   public void setBaz(String baz) {

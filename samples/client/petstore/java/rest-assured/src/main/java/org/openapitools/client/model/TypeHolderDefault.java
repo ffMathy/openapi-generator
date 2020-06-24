@@ -26,11 +26,14 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
+import org.hibernate.validator.constraints.*;
 
 /**
  * TypeHolderDefault
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TypeHolderDefault {
   public static final String SERIALIZED_NAME_STRING_ITEM = "string_item";
   @SerializedName(SERIALIZED_NAME_STRING_ITEM)
@@ -63,12 +66,12 @@ public class TypeHolderDefault {
    * Get stringItem
    * @return stringItem
   **/
+  @NotNull
   @ApiModelProperty(required = true, value = "")
 
   public String getStringItem() {
     return stringItem;
   }
-
 
 
   public void setStringItem(String stringItem) {
@@ -86,12 +89,13 @@ public class TypeHolderDefault {
    * Get numberItem
    * @return numberItem
   **/
+  @NotNull
+  @Valid
   @ApiModelProperty(required = true, value = "")
 
   public BigDecimal getNumberItem() {
     return numberItem;
   }
-
 
 
   public void setNumberItem(BigDecimal numberItem) {
@@ -109,12 +113,12 @@ public class TypeHolderDefault {
    * Get integerItem
    * @return integerItem
   **/
+  @NotNull
   @ApiModelProperty(required = true, value = "")
 
   public Integer getIntegerItem() {
     return integerItem;
   }
-
 
 
   public void setIntegerItem(Integer integerItem) {
@@ -132,12 +136,12 @@ public class TypeHolderDefault {
    * Get boolItem
    * @return boolItem
   **/
+  @NotNull
   @ApiModelProperty(required = true, value = "")
 
   public Boolean isBoolItem() {
     return boolItem;
   }
-
 
 
   public void setBoolItem(Boolean boolItem) {
@@ -160,12 +164,12 @@ public class TypeHolderDefault {
    * Get arrayItem
    * @return arrayItem
   **/
+  @NotNull
   @ApiModelProperty(required = true, value = "")
 
   public List<Integer> getArrayItem() {
     return arrayItem;
   }
-
 
 
   public void setArrayItem(List<Integer> arrayItem) {

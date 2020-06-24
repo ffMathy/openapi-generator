@@ -23,6 +23,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.openapitools.client.model.BigCat;
+import org.openapitools.client.model.Cat;
+import org.openapitools.client.model.Dog;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.dataformat.xml.annotation.*;
 import javax.xml.bind.annotation.*;
@@ -34,23 +37,24 @@ import javax.xml.bind.annotation.*;
   Animal.JSON_PROPERTY_CLASS_NAME,
   Animal.JSON_PROPERTY_COLOR
 })
-
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "className", visible = true)
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "className", visible = true)
 @JsonSubTypes({
-  @JsonSubTypes.Type(value = Dog.class, name = "Dog"),
+  @JsonSubTypes.Type(value = BigCat.class, name = "BigCat"),
   @JsonSubTypes.Type(value = Cat.class, name = "Cat"),
+  @JsonSubTypes.Type(value = Dog.class, name = "Dog"),
 })
 
 @XmlRootElement(name = "Animal")
 @XmlAccessorType(XmlAccessType.FIELD)
 @JacksonXmlRootElement(localName = "Animal")
 public class Animal {
-  @XmlElement(name = "className")
   public static final String JSON_PROPERTY_CLASS_NAME = "className";
-  private String className;
+  @XmlElement(name = "className")
+  protected String className;
 
-  @XmlElement(name = "color")
   public static final String JSON_PROPERTY_COLOR = "color";
+  @XmlElement(name = "color")
   private String color = "red";
 
 
@@ -72,7 +76,6 @@ public class Animal {
   public String getClassName() {
     return className;
   }
-
 
 
   public void setClassName(String className) {
@@ -99,7 +102,6 @@ public class Animal {
   public String getColor() {
     return color;
   }
-
 
 
   public void setColor(String color) {

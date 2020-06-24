@@ -26,11 +26,14 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
+import org.hibernate.validator.constraints.*;
 
 /**
  * XmlItem
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class XmlItem {
   public static final String SERIALIZED_NAME_ATTRIBUTE_STRING = "attribute_string";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTE_STRING)
@@ -167,7 +170,6 @@ public class XmlItem {
   }
 
 
-
   public void setAttributeString(String attributeString) {
     this.attributeString = attributeString;
   }
@@ -184,12 +186,12 @@ public class XmlItem {
    * @return attributeNumber
   **/
   @javax.annotation.Nullable
+  @Valid
   @ApiModelProperty(example = "1.234", value = "")
 
   public BigDecimal getAttributeNumber() {
     return attributeNumber;
   }
-
 
 
   public void setAttributeNumber(BigDecimal attributeNumber) {
@@ -215,7 +217,6 @@ public class XmlItem {
   }
 
 
-
   public void setAttributeInteger(Integer attributeInteger) {
     this.attributeInteger = attributeInteger;
   }
@@ -237,7 +238,6 @@ public class XmlItem {
   public Boolean isAttributeBoolean() {
     return attributeBoolean;
   }
-
 
 
   public void setAttributeBoolean(Boolean attributeBoolean) {
@@ -271,7 +271,6 @@ public class XmlItem {
   }
 
 
-
   public void setWrappedArray(List<Integer> wrappedArray) {
     this.wrappedArray = wrappedArray;
   }
@@ -295,7 +294,6 @@ public class XmlItem {
   }
 
 
-
   public void setNameString(String nameString) {
     this.nameString = nameString;
   }
@@ -312,12 +310,12 @@ public class XmlItem {
    * @return nameNumber
   **/
   @javax.annotation.Nullable
+  @Valid
   @ApiModelProperty(example = "1.234", value = "")
 
   public BigDecimal getNameNumber() {
     return nameNumber;
   }
-
 
 
   public void setNameNumber(BigDecimal nameNumber) {
@@ -343,7 +341,6 @@ public class XmlItem {
   }
 
 
-
   public void setNameInteger(Integer nameInteger) {
     this.nameInteger = nameInteger;
   }
@@ -365,7 +362,6 @@ public class XmlItem {
   public Boolean isNameBoolean() {
     return nameBoolean;
   }
-
 
 
   public void setNameBoolean(Boolean nameBoolean) {
@@ -399,7 +395,6 @@ public class XmlItem {
   }
 
 
-
   public void setNameArray(List<Integer> nameArray) {
     this.nameArray = nameArray;
   }
@@ -431,7 +426,6 @@ public class XmlItem {
   }
 
 
-
   public void setNameWrappedArray(List<Integer> nameWrappedArray) {
     this.nameWrappedArray = nameWrappedArray;
   }
@@ -455,7 +449,6 @@ public class XmlItem {
   }
 
 
-
   public void setPrefixString(String prefixString) {
     this.prefixString = prefixString;
   }
@@ -472,12 +465,12 @@ public class XmlItem {
    * @return prefixNumber
   **/
   @javax.annotation.Nullable
+  @Valid
   @ApiModelProperty(example = "1.234", value = "")
 
   public BigDecimal getPrefixNumber() {
     return prefixNumber;
   }
-
 
 
   public void setPrefixNumber(BigDecimal prefixNumber) {
@@ -503,7 +496,6 @@ public class XmlItem {
   }
 
 
-
   public void setPrefixInteger(Integer prefixInteger) {
     this.prefixInteger = prefixInteger;
   }
@@ -525,7 +517,6 @@ public class XmlItem {
   public Boolean isPrefixBoolean() {
     return prefixBoolean;
   }
-
 
 
   public void setPrefixBoolean(Boolean prefixBoolean) {
@@ -559,7 +550,6 @@ public class XmlItem {
   }
 
 
-
   public void setPrefixArray(List<Integer> prefixArray) {
     this.prefixArray = prefixArray;
   }
@@ -591,7 +581,6 @@ public class XmlItem {
   }
 
 
-
   public void setPrefixWrappedArray(List<Integer> prefixWrappedArray) {
     this.prefixWrappedArray = prefixWrappedArray;
   }
@@ -615,7 +604,6 @@ public class XmlItem {
   }
 
 
-
   public void setNamespaceString(String namespaceString) {
     this.namespaceString = namespaceString;
   }
@@ -632,12 +620,12 @@ public class XmlItem {
    * @return namespaceNumber
   **/
   @javax.annotation.Nullable
+  @Valid
   @ApiModelProperty(example = "1.234", value = "")
 
   public BigDecimal getNamespaceNumber() {
     return namespaceNumber;
   }
-
 
 
   public void setNamespaceNumber(BigDecimal namespaceNumber) {
@@ -663,7 +651,6 @@ public class XmlItem {
   }
 
 
-
   public void setNamespaceInteger(Integer namespaceInteger) {
     this.namespaceInteger = namespaceInteger;
   }
@@ -685,7 +672,6 @@ public class XmlItem {
   public Boolean isNamespaceBoolean() {
     return namespaceBoolean;
   }
-
 
 
   public void setNamespaceBoolean(Boolean namespaceBoolean) {
@@ -719,7 +705,6 @@ public class XmlItem {
   }
 
 
-
   public void setNamespaceArray(List<Integer> namespaceArray) {
     this.namespaceArray = namespaceArray;
   }
@@ -751,7 +736,6 @@ public class XmlItem {
   }
 
 
-
   public void setNamespaceWrappedArray(List<Integer> namespaceWrappedArray) {
     this.namespaceWrappedArray = namespaceWrappedArray;
   }
@@ -775,7 +759,6 @@ public class XmlItem {
   }
 
 
-
   public void setPrefixNsString(String prefixNsString) {
     this.prefixNsString = prefixNsString;
   }
@@ -792,12 +775,12 @@ public class XmlItem {
    * @return prefixNsNumber
   **/
   @javax.annotation.Nullable
+  @Valid
   @ApiModelProperty(example = "1.234", value = "")
 
   public BigDecimal getPrefixNsNumber() {
     return prefixNsNumber;
   }
-
 
 
   public void setPrefixNsNumber(BigDecimal prefixNsNumber) {
@@ -823,7 +806,6 @@ public class XmlItem {
   }
 
 
-
   public void setPrefixNsInteger(Integer prefixNsInteger) {
     this.prefixNsInteger = prefixNsInteger;
   }
@@ -845,7 +827,6 @@ public class XmlItem {
   public Boolean isPrefixNsBoolean() {
     return prefixNsBoolean;
   }
-
 
 
   public void setPrefixNsBoolean(Boolean prefixNsBoolean) {
@@ -879,7 +860,6 @@ public class XmlItem {
   }
 
 
-
   public void setPrefixNsArray(List<Integer> prefixNsArray) {
     this.prefixNsArray = prefixNsArray;
   }
@@ -909,7 +889,6 @@ public class XmlItem {
   public List<Integer> getPrefixNsWrappedArray() {
     return prefixNsWrappedArray;
   }
-
 
 
   public void setPrefixNsWrappedArray(List<Integer> prefixNsWrappedArray) {

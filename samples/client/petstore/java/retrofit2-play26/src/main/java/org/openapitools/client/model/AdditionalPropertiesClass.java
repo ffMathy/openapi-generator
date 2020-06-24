@@ -45,7 +45,7 @@ import javax.validation.Valid;
   AdditionalPropertiesClass.JSON_PROPERTY_ANYTYPE2,
   AdditionalPropertiesClass.JSON_PROPERTY_ANYTYPE3
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AdditionalPropertiesClass {
   public static final String JSON_PROPERTY_MAP_STRING = "map_string";
   private Map<String, String> mapString = null;
@@ -109,7 +109,6 @@ public class AdditionalPropertiesClass {
   }
 
 
-
   public void setMapString(Map<String, String> mapString) {
     this.mapString = mapString;
   }
@@ -142,7 +141,6 @@ public class AdditionalPropertiesClass {
   public Map<String, BigDecimal> getMapNumber() {
     return mapNumber;
   }
-
 
 
   public void setMapNumber(Map<String, BigDecimal> mapNumber) {
@@ -178,7 +176,6 @@ public class AdditionalPropertiesClass {
   }
 
 
-
   public void setMapInteger(Map<String, Integer> mapInteger) {
     this.mapInteger = mapInteger;
   }
@@ -210,7 +207,6 @@ public class AdditionalPropertiesClass {
   public Map<String, Boolean> getMapBoolean() {
     return mapBoolean;
   }
-
 
 
   public void setMapBoolean(Map<String, Boolean> mapBoolean) {
@@ -247,7 +243,6 @@ public class AdditionalPropertiesClass {
   }
 
 
-
   public void setMapArrayInteger(Map<String, List<Integer>> mapArrayInteger) {
     this.mapArrayInteger = mapArrayInteger;
   }
@@ -280,7 +275,6 @@ public class AdditionalPropertiesClass {
   public Map<String, List<Object>> getMapArrayAnytype() {
     return mapArrayAnytype;
   }
-
 
 
   public void setMapArrayAnytype(Map<String, List<Object>> mapArrayAnytype) {
@@ -317,7 +311,6 @@ public class AdditionalPropertiesClass {
   }
 
 
-
   public void setMapMapString(Map<String, Map<String, String>> mapMapString) {
     this.mapMapString = mapMapString;
   }
@@ -352,7 +345,6 @@ public class AdditionalPropertiesClass {
   }
 
 
-
   public void setMapMapAnytype(Map<String, Map<String, Object>> mapMapAnytype) {
     this.mapMapAnytype = mapMapAnytype;
   }
@@ -369,7 +361,6 @@ public class AdditionalPropertiesClass {
    * @return anytype1
   **/
   @javax.annotation.Nullable
-  @Valid
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ANYTYPE1)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -377,7 +368,6 @@ public class AdditionalPropertiesClass {
   public Object getAnytype1() {
     return anytype1;
   }
-
 
 
   public void setAnytype1(Object anytype1) {
@@ -396,7 +386,6 @@ public class AdditionalPropertiesClass {
    * @return anytype2
   **/
   @javax.annotation.Nullable
-  @Valid
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ANYTYPE2)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -404,7 +393,6 @@ public class AdditionalPropertiesClass {
   public Object getAnytype2() {
     return anytype2;
   }
-
 
 
   public void setAnytype2(Object anytype2) {
@@ -423,7 +411,6 @@ public class AdditionalPropertiesClass {
    * @return anytype3
   **/
   @javax.annotation.Nullable
-  @Valid
   @ApiModelProperty(value = "")
   @JsonProperty(JSON_PROPERTY_ANYTYPE3)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -431,7 +418,6 @@ public class AdditionalPropertiesClass {
   public Object getAnytype3() {
     return anytype3;
   }
-
 
 
   public void setAnytype3(Object anytype3) {

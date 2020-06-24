@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   FileSchemaTestClass.JSON_PROPERTY_FILE,
   FileSchemaTestClass.JSON_PROPERTY_FILES
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class FileSchemaTestClass {
   public static final String JSON_PROPERTY_FILE = "file";
   private java.io.File file;
@@ -59,7 +59,6 @@ public class FileSchemaTestClass {
   public java.io.File getFile() {
     return file;
   }
-
 
 
   public void setFile(java.io.File file) {
@@ -93,7 +92,6 @@ public class FileSchemaTestClass {
   public List<java.io.File> getFiles() {
     return files;
   }
-
 
 
   public void setFiles(List<java.io.File> files) {

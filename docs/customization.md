@@ -3,9 +3,9 @@ id: customization
 title: Customization
 ---
 
-## Creating a new template
-
-If none of the templates suit your needs, you can create a brand new template. OpenAPI Generator can help with this, using the `meta` command:
+## Custom Generator (and Template)
+ 
+<a id="creating-a-new-template"></a> If none of the built-in generators suit your needs and you need to do more than just modify the mustache templates to tweak generated code, you can create a brand new generator and its associated templates. OpenAPI Generator can help with this, using the `meta` command:
 
 ```sh
 java -jar modules/openapi-generator-cli/target/openapi-generator-cli.jar meta \
@@ -90,7 +90,8 @@ You can use this as additional dependency of the `openapi-generator-maven-plugin
 If you publish your artifact to a distant maven repository, do not forget to add this repository as `pluginRepository` for your project.
 
 ## Selective generation
-You may not want to generate *all* models in your project.  Likewise you may want just one or two apis to be written.  If that's the case, you can use system properties to control the output:
+
+You may not want to generate *all* models in your project. Likewise, you may want just one or two apis to be written.  If that's the case, you can use system properties or [global properties](./global-properties.md) to control the output.
 
 The default is generate *everything* supported by the specific library.  Once you enable a feature, it will restrict the contents generated:
 
@@ -142,7 +143,13 @@ When using selective generation, _only_ the templates needed for the specific ge
 To skip models defined as the form parameters in "requestBody", please use `skipFormModel` (default to false) (this option is introduced at v3.2.2)
 
 ```sh
-java -DskipFormModel=true
+java -DskipFormModel=true <path to jar> generate …
+```
+
+or
+
+```sh
+java <path to jar> generate --global-property skipFormModel=true …
 ```
 
 This option will be helpful to skip model generation due to the form parameter, which is defined differently in OAS3 as there's no form parameter in OAS3
@@ -223,7 +230,7 @@ apiPackage: "petstore"
 ```
 
 Supported config options can be different per language. Running `config-help -g {lang}` will show available options.
-**These options are applied via configuration file (e.g. config.json or config.yml) or by passing them with `-D{optionName}={optionValue}`**. (If `-D{optionName}` does not work, please open a [ticket](https://github.com/openapitools/openapi-generator/issues/new) and we'll look into it)
+**These options are applied via configuration file (e.g. config.json or config.yml) or by passing them with `-p {optionName}={optionValue}`**. (If `-p {optionName}` does not work, please open a [ticket](https://github.com/openapitools/openapi-generator/issues/new) and we'll look into it)
 
 ```sh
 java -jar modules/openapi-generator-cli/target/openapi-generator-cli.jar config-help -g java
@@ -248,7 +255,7 @@ CONFIG OPTIONS
 	    retrofit - HTTP client: OkHttp 2.4.0. JSON processing: Gson 2.3.1 (Retrofit 1.9.0)
         retrofit2 - HTTP client: OkHttp 2.5.0. JSON processing: Gson 2.4 (Retrofit 2.0.0-beta2)
         google-api-client - HTTP client: google-api-client 1.23.0. JSON processing: Jackson 2.8.9
-        rest-assured - HTTP client: rest-assured : 4.0.0. JSON processing: Gson 2.8.5. Only for Java8
+        rest-assured - HTTP client: rest-assured : 4.3.0. JSON processing: Gson 2.8.6. Only for Java8
 ```
 
 Your config file for Java can look like

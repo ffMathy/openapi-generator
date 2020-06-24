@@ -14,6 +14,7 @@ package org.openapitools.client.models
 
 import com.squareup.moshi.Json
 import java.io.Serializable
+
 /**
  * 
  * @param id 
@@ -32,16 +33,16 @@ data class Order (
     @Json(name = "quantity")
     val quantity: kotlin.Int? = null,
     @Json(name = "shipDate")
-    val shipDate: java.time.LocalDateTime? = null,
+    val shipDate: java.time.OffsetDateTime? = null,
     /* Order Status */
     @Json(name = "status")
     val status: Order.Status? = null,
     @Json(name = "complete")
     val complete: kotlin.Boolean? = null
-) 
-: Serializable 
-
-{
+) : Serializable {
+    companion object {
+        private const val serialVersionUID: Long = 123
+    }
 
     /**
     * Order Status
@@ -49,15 +50,9 @@ data class Order (
     */
     
     enum class Status(val value: kotlin.String){
-    
         @Json(name = "placed") placed("placed"),
-    
         @Json(name = "approved") approved("approved"),
-    
         @Json(name = "delivered") delivered("delivered");
-    
-
     }
-
 }
 

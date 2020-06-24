@@ -23,11 +23,14 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
+import org.hibernate.validator.constraints.*;
 
 /**
  * ModelApiResponse
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ModelApiResponse {
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)
@@ -60,7 +63,6 @@ public class ModelApiResponse {
   }
 
 
-
   public void setCode(Integer code) {
     this.code = code;
   }
@@ -84,7 +86,6 @@ public class ModelApiResponse {
   }
 
 
-
   public void setType(String type) {
     this.type = type;
   }
@@ -106,7 +107,6 @@ public class ModelApiResponse {
   public String getMessage() {
     return message;
   }
-
 
 
   public void setMessage(String message) {

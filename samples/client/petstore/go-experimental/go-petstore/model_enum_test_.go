@@ -8,25 +8,39 @@
  */
 
 package petstore
+
 import (
 	"encoding/json"
-	"errors"
 )
+
 // EnumTest struct for EnumTest
 type EnumTest struct {
 	EnumString *string `json:"enum_string,omitempty"`
-
-	EnumStringRequired *string `json:"enum_string_required,omitempty"`
-
+	EnumStringRequired string `json:"enum_string_required"`
 	EnumInteger *int32 `json:"enum_integer,omitempty"`
-
 	EnumNumber *float64 `json:"enum_number,omitempty"`
-
 	OuterEnum *OuterEnum `json:"outerEnum,omitempty"`
-
 }
 
-// GetEnumString returns the EnumString field if non-nil, zero value otherwise.
+// NewEnumTest instantiates a new EnumTest object
+// This constructor will assign default values to properties that have it defined,
+// and makes sure properties required by API are set, but the set of arguments
+// will change when the set of required properties is changed
+func NewEnumTest(enumStringRequired string, ) *EnumTest {
+	this := EnumTest{}
+	this.EnumStringRequired = enumStringRequired
+	return &this
+}
+
+// NewEnumTestWithDefaults instantiates a new EnumTest object
+// This constructor will only assign default values to properties that have it defined,
+// but it doesn't guarantee that properties required by API are set
+func NewEnumTestWithDefaults() *EnumTest {
+	this := EnumTest{}
+	return &this
+}
+
+// GetEnumString returns the EnumString field value if set, zero value otherwise.
 func (o *EnumTest) GetEnumString() string {
 	if o == nil || o.EnumString == nil {
 		var ret string
@@ -35,14 +49,13 @@ func (o *EnumTest) GetEnumString() string {
 	return *o.EnumString
 }
 
-// GetEnumStringOk returns a tuple with the EnumString field if it's non-nil, zero value otherwise
+// GetEnumStringOk returns a tuple with the EnumString field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EnumTest) GetEnumStringOk() (string, bool) {
+func (o *EnumTest) GetEnumStringOk() (*string, bool) {
 	if o == nil || o.EnumString == nil {
-		var ret string
-		return ret, false
+		return nil, false
 	}
-	return *o.EnumString, true
+	return o.EnumString, true
 }
 
 // HasEnumString returns a boolean if a field has been set.
@@ -59,40 +72,31 @@ func (o *EnumTest) SetEnumString(v string) {
 	o.EnumString = &v
 }
 
-// GetEnumStringRequired returns the EnumStringRequired field if non-nil, zero value otherwise.
+// GetEnumStringRequired returns the EnumStringRequired field value
 func (o *EnumTest) GetEnumStringRequired() string {
-	if o == nil || o.EnumStringRequired == nil {
+	if o == nil  {
 		var ret string
 		return ret
 	}
-	return *o.EnumStringRequired
+
+	return o.EnumStringRequired
 }
 
-// GetEnumStringRequiredOk returns a tuple with the EnumStringRequired field if it's non-nil, zero value otherwise
+// GetEnumStringRequiredOk returns a tuple with the EnumStringRequired field value
 // and a boolean to check if the value has been set.
-func (o *EnumTest) GetEnumStringRequiredOk() (string, bool) {
-	if o == nil || o.EnumStringRequired == nil {
-		var ret string
-		return ret, false
+func (o *EnumTest) GetEnumStringRequiredOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
 	}
-	return *o.EnumStringRequired, true
+	return &o.EnumStringRequired, true
 }
 
-// HasEnumStringRequired returns a boolean if a field has been set.
-func (o *EnumTest) HasEnumStringRequired() bool {
-	if o != nil && o.EnumStringRequired != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetEnumStringRequired gets a reference to the given string and assigns it to the EnumStringRequired field.
+// SetEnumStringRequired sets field value
 func (o *EnumTest) SetEnumStringRequired(v string) {
-	o.EnumStringRequired = &v
+	o.EnumStringRequired = v
 }
 
-// GetEnumInteger returns the EnumInteger field if non-nil, zero value otherwise.
+// GetEnumInteger returns the EnumInteger field value if set, zero value otherwise.
 func (o *EnumTest) GetEnumInteger() int32 {
 	if o == nil || o.EnumInteger == nil {
 		var ret int32
@@ -101,14 +105,13 @@ func (o *EnumTest) GetEnumInteger() int32 {
 	return *o.EnumInteger
 }
 
-// GetEnumIntegerOk returns a tuple with the EnumInteger field if it's non-nil, zero value otherwise
+// GetEnumIntegerOk returns a tuple with the EnumInteger field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EnumTest) GetEnumIntegerOk() (int32, bool) {
+func (o *EnumTest) GetEnumIntegerOk() (*int32, bool) {
 	if o == nil || o.EnumInteger == nil {
-		var ret int32
-		return ret, false
+		return nil, false
 	}
-	return *o.EnumInteger, true
+	return o.EnumInteger, true
 }
 
 // HasEnumInteger returns a boolean if a field has been set.
@@ -125,7 +128,7 @@ func (o *EnumTest) SetEnumInteger(v int32) {
 	o.EnumInteger = &v
 }
 
-// GetEnumNumber returns the EnumNumber field if non-nil, zero value otherwise.
+// GetEnumNumber returns the EnumNumber field value if set, zero value otherwise.
 func (o *EnumTest) GetEnumNumber() float64 {
 	if o == nil || o.EnumNumber == nil {
 		var ret float64
@@ -134,14 +137,13 @@ func (o *EnumTest) GetEnumNumber() float64 {
 	return *o.EnumNumber
 }
 
-// GetEnumNumberOk returns a tuple with the EnumNumber field if it's non-nil, zero value otherwise
+// GetEnumNumberOk returns a tuple with the EnumNumber field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EnumTest) GetEnumNumberOk() (float64, bool) {
+func (o *EnumTest) GetEnumNumberOk() (*float64, bool) {
 	if o == nil || o.EnumNumber == nil {
-		var ret float64
-		return ret, false
+		return nil, false
 	}
-	return *o.EnumNumber, true
+	return o.EnumNumber, true
 }
 
 // HasEnumNumber returns a boolean if a field has been set.
@@ -158,7 +160,7 @@ func (o *EnumTest) SetEnumNumber(v float64) {
 	o.EnumNumber = &v
 }
 
-// GetOuterEnum returns the OuterEnum field if non-nil, zero value otherwise.
+// GetOuterEnum returns the OuterEnum field value if set, zero value otherwise.
 func (o *EnumTest) GetOuterEnum() OuterEnum {
 	if o == nil || o.OuterEnum == nil {
 		var ret OuterEnum
@@ -167,14 +169,13 @@ func (o *EnumTest) GetOuterEnum() OuterEnum {
 	return *o.OuterEnum
 }
 
-// GetOuterEnumOk returns a tuple with the OuterEnum field if it's non-nil, zero value otherwise
+// GetOuterEnumOk returns a tuple with the OuterEnum field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *EnumTest) GetOuterEnumOk() (OuterEnum, bool) {
+func (o *EnumTest) GetOuterEnumOk() (*OuterEnum, bool) {
 	if o == nil || o.OuterEnum == nil {
-		var ret OuterEnum
-		return ret, false
+		return nil, false
 	}
-	return *o.OuterEnum, true
+	return o.OuterEnum, true
 }
 
 // HasOuterEnum returns a boolean if a field has been set.
@@ -191,17 +192,12 @@ func (o *EnumTest) SetOuterEnum(v OuterEnum) {
 	o.OuterEnum = &v
 }
 
-
-// MarshalJSON returns the JSON representation of the model.
 func (o EnumTest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if o.EnumString != nil {
 		toSerialize["enum_string"] = o.EnumString
 	}
-	if o.EnumStringRequired == nil {
-		return nil, errors.New("EnumStringRequired is required and not nullable, but was not set on EnumTest")
-	}
-	if o.EnumStringRequired != nil {
+	if true {
 		toSerialize["enum_string_required"] = o.EnumStringRequired
 	}
 	if o.EnumInteger != nil {
@@ -214,6 +210,42 @@ func (o EnumTest) MarshalJSON() ([]byte, error) {
 		toSerialize["outerEnum"] = o.OuterEnum
 	}
 	return json.Marshal(toSerialize)
+}
+
+type NullableEnumTest struct {
+	value *EnumTest
+	isSet bool
+}
+
+func (v NullableEnumTest) Get() *EnumTest {
+	return v.value
+}
+
+func (v *NullableEnumTest) Set(val *EnumTest) {
+	v.value = val
+	v.isSet = true
+}
+
+func (v NullableEnumTest) IsSet() bool {
+	return v.isSet
+}
+
+func (v *NullableEnumTest) Unset() {
+	v.value = nil
+	v.isSet = false
+}
+
+func NewNullableEnumTest(val *EnumTest) *NullableEnumTest {
+	return &NullableEnumTest{value: val, isSet: true}
+}
+
+func (v NullableEnumTest) MarshalJSON() ([]byte, error) {
+	return json.Marshal(v.value)
+}
+
+func (v *NullableEnumTest) UnmarshalJSON(src []byte) error {
+	v.isSet = true
+	return json.Unmarshal(src, &v.value)
 }
 
 

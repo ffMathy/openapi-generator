@@ -29,7 +29,7 @@ import android.os.Parcel;
 /**
  * Category
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Category implements Parcelable {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -60,7 +60,6 @@ public class Category implements Parcelable {
   }
 
 
-
   public void setId(Long id) {
     this.id = id;
   }
@@ -81,7 +80,6 @@ public class Category implements Parcelable {
   public String getName() {
     return name;
   }
-
 
 
   public void setName(String name) {

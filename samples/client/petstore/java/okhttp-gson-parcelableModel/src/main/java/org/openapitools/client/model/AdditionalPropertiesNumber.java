@@ -32,7 +32,7 @@ import android.os.Parcel;
 /**
  * AdditionalPropertiesNumber
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AdditionalPropertiesNumber extends HashMap<String, BigDecimal> implements Parcelable {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -58,7 +58,6 @@ public class AdditionalPropertiesNumber extends HashMap<String, BigDecimal> impl
   public String getName() {
     return name;
   }
-
 
 
   public void setName(String name) {

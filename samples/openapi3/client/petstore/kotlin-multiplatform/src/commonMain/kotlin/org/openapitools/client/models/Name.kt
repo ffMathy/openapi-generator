@@ -14,18 +14,19 @@ package org.openapitools.client.models
 
 import kotlinx.serialization.*
 import kotlinx.serialization.internal.CommonEnumSerializer
+
 /**
  * Model for testing model name same as property name
  * @param name 
  * @param snakeCase 
  * @param property 
- * @param ``123number`` 
+ * @param `123number` 
  */
 @Serializable
 data class Name (
     @SerialName(value = "name") @Required val name: kotlin.Int,
-    @SerialName(value = "snakeCase") val snakeCase: kotlin.Int? = null,
+    @SerialName(value = "snake_case") val snakeCase: kotlin.Int? = null,
     @SerialName(value = "property") val property: kotlin.String? = null,
-    @SerialName(value = "&#x60;123number&#x60;") val ``123number``: kotlin.Int? = null
+    @SerialName(value = "123Number") val `123number`: kotlin.Int? = null
 )
 

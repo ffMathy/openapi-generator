@@ -32,17 +32,17 @@ import javax.xml.bind.annotation.*;
   Category.JSON_PROPERTY_ID,
   Category.JSON_PROPERTY_NAME
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 @XmlRootElement(name = "Category")
 @XmlAccessorType(XmlAccessType.FIELD)
 @JacksonXmlRootElement(localName = "Category")
 public class Category {
-  @XmlElement(name = "id")
   public static final String JSON_PROPERTY_ID = "id";
+  @XmlElement(name = "id")
   private Long id;
 
-  @XmlElement(name = "name")
   public static final String JSON_PROPERTY_NAME = "name";
+  @XmlElement(name = "name")
   private String name = "default-name";
 
 
@@ -65,7 +65,6 @@ public class Category {
   public Long getId() {
     return id;
   }
-
 
 
   public void setId(Long id) {
@@ -91,7 +90,6 @@ public class Category {
   public String getName() {
     return name;
   }
-
 
 
   public void setName(String name) {

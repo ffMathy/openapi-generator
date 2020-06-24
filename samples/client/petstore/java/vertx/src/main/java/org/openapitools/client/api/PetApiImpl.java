@@ -3,6 +3,7 @@ package org.openapitools.client.api;
 import io.vertx.core.file.AsyncFile;
 import org.openapitools.client.model.ModelApiResponse;
 import org.openapitools.client.model.Pet;
+import java.util.Set;
 
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
@@ -18,7 +19,7 @@ import org.openapitools.client.ApiException;
 import org.openapitools.client.Configuration;
 import org.openapitools.client.Pair;
 
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class PetApiImpl implements PetApi {
 
     private ApiClient apiClient;
@@ -63,6 +64,9 @@ public class PetApiImpl implements PetApi {
         // header params
         MultiMap localVarHeaderParams = MultiMap.caseInsensitiveMultiMap();
         
+        // cookie params
+        MultiMap localVarCookieParams = MultiMap.caseInsensitiveMultiMap();
+        
         // form params
         // TODO: sending files within multipart/form-data is not supported yet (because of vertx web-client)
         Map<String, Object> localVarFormParams = new HashMap<>();
@@ -71,7 +75,7 @@ public class PetApiImpl implements PetApi {
         String[] localVarContentTypes = { "application/json", "application/xml" };
         String[] localVarAuthNames = new String[] { "petstore_auth" };
 
-        apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarBody, localVarHeaderParams, localVarFormParams, localVarAccepts, localVarContentTypes, localVarAuthNames, null, resultHandler);
+        apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccepts, localVarContentTypes, localVarAuthNames, null, resultHandler);
     }
     /**
      * Deletes a pet
@@ -100,6 +104,9 @@ public class PetApiImpl implements PetApi {
         if (apiKey != null)
         localVarHeaderParams.add("api_key", apiClient.parameterToString(apiKey));
 
+        // cookie params
+        MultiMap localVarCookieParams = MultiMap.caseInsensitiveMultiMap();
+        
         // form params
         // TODO: sending files within multipart/form-data is not supported yet (because of vertx web-client)
         Map<String, Object> localVarFormParams = new HashMap<>();
@@ -108,7 +115,7 @@ public class PetApiImpl implements PetApi {
         String[] localVarContentTypes = {  };
         String[] localVarAuthNames = new String[] { "petstore_auth" };
 
-        apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarBody, localVarHeaderParams, localVarFormParams, localVarAccepts, localVarContentTypes, localVarAuthNames, null, resultHandler);
+        apiClient.invokeAPI(localVarPath, "DELETE", localVarQueryParams, localVarBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccepts, localVarContentTypes, localVarAuthNames, null, resultHandler);
     }
     /**
      * Finds Pets by status
@@ -135,6 +142,9 @@ public class PetApiImpl implements PetApi {
         // header params
         MultiMap localVarHeaderParams = MultiMap.caseInsensitiveMultiMap();
         
+        // cookie params
+        MultiMap localVarCookieParams = MultiMap.caseInsensitiveMultiMap();
+        
         // form params
         // TODO: sending files within multipart/form-data is not supported yet (because of vertx web-client)
         Map<String, Object> localVarFormParams = new HashMap<>();
@@ -143,7 +153,7 @@ public class PetApiImpl implements PetApi {
         String[] localVarContentTypes = {  };
         String[] localVarAuthNames = new String[] { "petstore_auth" };
         TypeReference<List<Pet>> localVarReturnType = new TypeReference<List<Pet>>() {};
-        apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarBody, localVarHeaderParams, localVarFormParams, localVarAccepts, localVarContentTypes, localVarAuthNames, localVarReturnType, resultHandler);
+        apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccepts, localVarContentTypes, localVarAuthNames, localVarReturnType, resultHandler);
     }
     /**
      * Finds Pets by tags
@@ -151,7 +161,7 @@ public class PetApiImpl implements PetApi {
      * @param tags Tags to filter by (required)
      * @param resultHandler Asynchronous result handler
      */
-    public void findPetsByTags(List<String> tags, Handler<AsyncResult<List<Pet>>> resultHandler) {
+    public void findPetsByTags(Set<String> tags, Handler<AsyncResult<Set<Pet>>> resultHandler) {
         Object localVarBody = null;
         
         // verify the required parameter 'tags' is set
@@ -170,6 +180,9 @@ public class PetApiImpl implements PetApi {
         // header params
         MultiMap localVarHeaderParams = MultiMap.caseInsensitiveMultiMap();
         
+        // cookie params
+        MultiMap localVarCookieParams = MultiMap.caseInsensitiveMultiMap();
+        
         // form params
         // TODO: sending files within multipart/form-data is not supported yet (because of vertx web-client)
         Map<String, Object> localVarFormParams = new HashMap<>();
@@ -177,8 +190,8 @@ public class PetApiImpl implements PetApi {
         String[] localVarAccepts = { "application/xml", "application/json" };
         String[] localVarContentTypes = {  };
         String[] localVarAuthNames = new String[] { "petstore_auth" };
-        TypeReference<List<Pet>> localVarReturnType = new TypeReference<List<Pet>>() {};
-        apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarBody, localVarHeaderParams, localVarFormParams, localVarAccepts, localVarContentTypes, localVarAuthNames, localVarReturnType, resultHandler);
+        TypeReference<Set<Pet>> localVarReturnType = new TypeReference<Set<Pet>>() {};
+        apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccepts, localVarContentTypes, localVarAuthNames, localVarReturnType, resultHandler);
     }
     /**
      * Find pet by ID
@@ -204,6 +217,9 @@ public class PetApiImpl implements PetApi {
         // header params
         MultiMap localVarHeaderParams = MultiMap.caseInsensitiveMultiMap();
         
+        // cookie params
+        MultiMap localVarCookieParams = MultiMap.caseInsensitiveMultiMap();
+        
         // form params
         // TODO: sending files within multipart/form-data is not supported yet (because of vertx web-client)
         Map<String, Object> localVarFormParams = new HashMap<>();
@@ -212,7 +228,7 @@ public class PetApiImpl implements PetApi {
         String[] localVarContentTypes = {  };
         String[] localVarAuthNames = new String[] { "api_key" };
         TypeReference<Pet> localVarReturnType = new TypeReference<Pet>() {};
-        apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarBody, localVarHeaderParams, localVarFormParams, localVarAccepts, localVarContentTypes, localVarAuthNames, localVarReturnType, resultHandler);
+        apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccepts, localVarContentTypes, localVarAuthNames, localVarReturnType, resultHandler);
     }
     /**
      * Update an existing pet
@@ -238,6 +254,9 @@ public class PetApiImpl implements PetApi {
         // header params
         MultiMap localVarHeaderParams = MultiMap.caseInsensitiveMultiMap();
         
+        // cookie params
+        MultiMap localVarCookieParams = MultiMap.caseInsensitiveMultiMap();
+        
         // form params
         // TODO: sending files within multipart/form-data is not supported yet (because of vertx web-client)
         Map<String, Object> localVarFormParams = new HashMap<>();
@@ -246,7 +265,7 @@ public class PetApiImpl implements PetApi {
         String[] localVarContentTypes = { "application/json", "application/xml" };
         String[] localVarAuthNames = new String[] { "petstore_auth" };
 
-        apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarBody, localVarHeaderParams, localVarFormParams, localVarAccepts, localVarContentTypes, localVarAuthNames, null, resultHandler);
+        apiClient.invokeAPI(localVarPath, "PUT", localVarQueryParams, localVarBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccepts, localVarContentTypes, localVarAuthNames, null, resultHandler);
     }
     /**
      * Updates a pet in the store with form data
@@ -274,6 +293,9 @@ public class PetApiImpl implements PetApi {
         // header params
         MultiMap localVarHeaderParams = MultiMap.caseInsensitiveMultiMap();
         
+        // cookie params
+        MultiMap localVarCookieParams = MultiMap.caseInsensitiveMultiMap();
+        
         // form params
         // TODO: sending files within multipart/form-data is not supported yet (because of vertx web-client)
         Map<String, Object> localVarFormParams = new HashMap<>();
@@ -284,7 +306,7 @@ if (status != null) localVarFormParams.put("status", status);
         String[] localVarContentTypes = { "application/x-www-form-urlencoded" };
         String[] localVarAuthNames = new String[] { "petstore_auth" };
 
-        apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarBody, localVarHeaderParams, localVarFormParams, localVarAccepts, localVarContentTypes, localVarAuthNames, null, resultHandler);
+        apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccepts, localVarContentTypes, localVarAuthNames, null, resultHandler);
     }
     /**
      * uploads an image
@@ -312,6 +334,9 @@ if (status != null) localVarFormParams.put("status", status);
         // header params
         MultiMap localVarHeaderParams = MultiMap.caseInsensitiveMultiMap();
         
+        // cookie params
+        MultiMap localVarCookieParams = MultiMap.caseInsensitiveMultiMap();
+        
         // form params
         // TODO: sending files within multipart/form-data is not supported yet (because of vertx web-client)
         Map<String, Object> localVarFormParams = new HashMap<>();
@@ -322,7 +347,7 @@ if (file != null) localVarFormParams.put("file", file);
         String[] localVarContentTypes = { "multipart/form-data" };
         String[] localVarAuthNames = new String[] { "petstore_auth" };
         TypeReference<ModelApiResponse> localVarReturnType = new TypeReference<ModelApiResponse>() {};
-        apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarBody, localVarHeaderParams, localVarFormParams, localVarAccepts, localVarContentTypes, localVarAuthNames, localVarReturnType, resultHandler);
+        apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccepts, localVarContentTypes, localVarAuthNames, localVarReturnType, resultHandler);
     }
     /**
      * uploads an image (required)
@@ -356,6 +381,9 @@ if (file != null) localVarFormParams.put("file", file);
         // header params
         MultiMap localVarHeaderParams = MultiMap.caseInsensitiveMultiMap();
         
+        // cookie params
+        MultiMap localVarCookieParams = MultiMap.caseInsensitiveMultiMap();
+        
         // form params
         // TODO: sending files within multipart/form-data is not supported yet (because of vertx web-client)
         Map<String, Object> localVarFormParams = new HashMap<>();
@@ -366,6 +394,6 @@ if (requiredFile != null) localVarFormParams.put("requiredFile", requiredFile);
         String[] localVarContentTypes = { "multipart/form-data" };
         String[] localVarAuthNames = new String[] { "petstore_auth" };
         TypeReference<ModelApiResponse> localVarReturnType = new TypeReference<ModelApiResponse>() {};
-        apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarBody, localVarHeaderParams, localVarFormParams, localVarAccepts, localVarContentTypes, localVarAuthNames, localVarReturnType, resultHandler);
+        apiClient.invokeAPI(localVarPath, "POST", localVarQueryParams, localVarBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAccepts, localVarContentTypes, localVarAuthNames, localVarReturnType, resultHandler);
     }
 }

@@ -98,7 +98,7 @@ impl Request {
     pub fn execute<'a, C, U>(
         self,
         conf: &configuration::Configuration<C>,
-    ) -> Box<Future<Item = U, Error = Error<serde_json::Value>> + 'a>
+    ) -> Box<dyn Future<Item = U, Error = Error<serde_json::Value>> + 'a>
     where
         C: hyper::client::Connect,
         U: Sized + 'a,
@@ -113,7 +113,7 @@ impl Request {
         let mut path = self.path;
         for (k, v) in self.path_params {
             // replace {id} with the value of the id path param
-            path = path.replace(&format!("{{{}}}", k), &v);
+            {{=<% %>=}}path = path.replace(&format!("{{{}}}", k), &v);<%={{ }}=%>
         }
 
         for (k, v) in self.header_params {

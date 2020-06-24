@@ -15,6 +15,8 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -23,6 +25,8 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import org.openapitools.client.JSON;
+
 
 /**
  * Order
@@ -35,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   Order.JSON_PROPERTY_STATUS,
   Order.JSON_PROPERTY_COMPLETE
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Order {
   public static final String JSON_PROPERTY_ID = "id";
   private Long id;
@@ -94,7 +98,6 @@ public class Order {
 
 
   public Order id(Long id) {
-    
     this.id = id;
     return this;
   }
@@ -113,14 +116,12 @@ public class Order {
   }
 
 
-
   public void setId(Long id) {
     this.id = id;
   }
 
 
   public Order petId(Long petId) {
-    
     this.petId = petId;
     return this;
   }
@@ -139,14 +140,12 @@ public class Order {
   }
 
 
-
   public void setPetId(Long petId) {
     this.petId = petId;
   }
 
 
   public Order quantity(Integer quantity) {
-    
     this.quantity = quantity;
     return this;
   }
@@ -165,14 +164,12 @@ public class Order {
   }
 
 
-
   public void setQuantity(Integer quantity) {
     this.quantity = quantity;
   }
 
 
   public Order shipDate(OffsetDateTime shipDate) {
-    
     this.shipDate = shipDate;
     return this;
   }
@@ -191,14 +188,12 @@ public class Order {
   }
 
 
-
   public void setShipDate(OffsetDateTime shipDate) {
     this.shipDate = shipDate;
   }
 
 
   public Order status(StatusEnum status) {
-    
     this.status = status;
     return this;
   }
@@ -217,14 +212,12 @@ public class Order {
   }
 
 
-
   public void setStatus(StatusEnum status) {
     this.status = status;
   }
 
 
   public Order complete(Boolean complete) {
-    
     this.complete = complete;
     return this;
   }
@@ -243,12 +236,14 @@ public class Order {
   }
 
 
-
   public void setComplete(Boolean complete) {
     this.complete = complete;
   }
 
 
+  /**
+   * Return true if this Order object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

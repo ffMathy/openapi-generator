@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
  * An order for a pets from the pet store
  */
 @ApiModel(description = "An order for a pets from the pet store")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class Order   {
   @JsonProperty("id")
   private Long id;
@@ -27,6 +27,7 @@ public class Order   {
   private Integer quantity;
 
   @JsonProperty("shipDate")
+  @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime shipDate;
 
   /**
@@ -45,8 +46,12 @@ public class Order   {
       this.value = value;
     }
 
-    @Override
     @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
     public String toString() {
       return String.valueOf(value);
     }

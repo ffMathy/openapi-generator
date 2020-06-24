@@ -16,7 +16,7 @@ import javax.validation.constraints.*;
 /**
  * MapTest
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 public class MapTest   {
   @JsonProperty("map_map_of_string")
   @Valid
@@ -36,8 +36,12 @@ public class MapTest   {
       this.value = value;
     }
 
-    @Override
     @JsonValue
+    public String getValue() {
+      return value;
+    }
+
+    @Override
     public String toString() {
       return String.valueOf(value);
     }

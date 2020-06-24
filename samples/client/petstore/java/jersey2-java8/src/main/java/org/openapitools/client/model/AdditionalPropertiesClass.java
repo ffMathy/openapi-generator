@@ -15,6 +15,8 @@ package org.openapitools.client.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -26,6 +28,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import org.openapitools.client.JSON;
+
 
 /**
  * AdditionalPropertiesClass
@@ -43,7 +47,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   AdditionalPropertiesClass.JSON_PROPERTY_ANYTYPE2,
   AdditionalPropertiesClass.JSON_PROPERTY_ANYTYPE3
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AdditionalPropertiesClass {
   public static final String JSON_PROPERTY_MAP_STRING = "map_string";
   private Map<String, String> mapString = null;
@@ -80,7 +84,6 @@ public class AdditionalPropertiesClass {
 
 
   public AdditionalPropertiesClass mapString(Map<String, String> mapString) {
-    
     this.mapString = mapString;
     return this;
   }
@@ -107,14 +110,12 @@ public class AdditionalPropertiesClass {
   }
 
 
-
   public void setMapString(Map<String, String> mapString) {
     this.mapString = mapString;
   }
 
 
   public AdditionalPropertiesClass mapNumber(Map<String, BigDecimal> mapNumber) {
-    
     this.mapNumber = mapNumber;
     return this;
   }
@@ -141,14 +142,12 @@ public class AdditionalPropertiesClass {
   }
 
 
-
   public void setMapNumber(Map<String, BigDecimal> mapNumber) {
     this.mapNumber = mapNumber;
   }
 
 
   public AdditionalPropertiesClass mapInteger(Map<String, Integer> mapInteger) {
-    
     this.mapInteger = mapInteger;
     return this;
   }
@@ -175,14 +174,12 @@ public class AdditionalPropertiesClass {
   }
 
 
-
   public void setMapInteger(Map<String, Integer> mapInteger) {
     this.mapInteger = mapInteger;
   }
 
 
   public AdditionalPropertiesClass mapBoolean(Map<String, Boolean> mapBoolean) {
-    
     this.mapBoolean = mapBoolean;
     return this;
   }
@@ -209,14 +206,12 @@ public class AdditionalPropertiesClass {
   }
 
 
-
   public void setMapBoolean(Map<String, Boolean> mapBoolean) {
     this.mapBoolean = mapBoolean;
   }
 
 
   public AdditionalPropertiesClass mapArrayInteger(Map<String, List<Integer>> mapArrayInteger) {
-    
     this.mapArrayInteger = mapArrayInteger;
     return this;
   }
@@ -243,14 +238,12 @@ public class AdditionalPropertiesClass {
   }
 
 
-
   public void setMapArrayInteger(Map<String, List<Integer>> mapArrayInteger) {
     this.mapArrayInteger = mapArrayInteger;
   }
 
 
   public AdditionalPropertiesClass mapArrayAnytype(Map<String, List<Object>> mapArrayAnytype) {
-    
     this.mapArrayAnytype = mapArrayAnytype;
     return this;
   }
@@ -277,14 +270,12 @@ public class AdditionalPropertiesClass {
   }
 
 
-
   public void setMapArrayAnytype(Map<String, List<Object>> mapArrayAnytype) {
     this.mapArrayAnytype = mapArrayAnytype;
   }
 
 
   public AdditionalPropertiesClass mapMapString(Map<String, Map<String, String>> mapMapString) {
-    
     this.mapMapString = mapMapString;
     return this;
   }
@@ -311,14 +302,12 @@ public class AdditionalPropertiesClass {
   }
 
 
-
   public void setMapMapString(Map<String, Map<String, String>> mapMapString) {
     this.mapMapString = mapMapString;
   }
 
 
   public AdditionalPropertiesClass mapMapAnytype(Map<String, Map<String, Object>> mapMapAnytype) {
-    
     this.mapMapAnytype = mapMapAnytype;
     return this;
   }
@@ -345,14 +334,12 @@ public class AdditionalPropertiesClass {
   }
 
 
-
   public void setMapMapAnytype(Map<String, Map<String, Object>> mapMapAnytype) {
     this.mapMapAnytype = mapMapAnytype;
   }
 
 
   public AdditionalPropertiesClass anytype1(Object anytype1) {
-    
     this.anytype1 = anytype1;
     return this;
   }
@@ -371,14 +358,12 @@ public class AdditionalPropertiesClass {
   }
 
 
-
   public void setAnytype1(Object anytype1) {
     this.anytype1 = anytype1;
   }
 
 
   public AdditionalPropertiesClass anytype2(Object anytype2) {
-    
     this.anytype2 = anytype2;
     return this;
   }
@@ -397,14 +382,12 @@ public class AdditionalPropertiesClass {
   }
 
 
-
   public void setAnytype2(Object anytype2) {
     this.anytype2 = anytype2;
   }
 
 
   public AdditionalPropertiesClass anytype3(Object anytype3) {
-    
     this.anytype3 = anytype3;
     return this;
   }
@@ -423,12 +406,14 @@ public class AdditionalPropertiesClass {
   }
 
 
-
   public void setAnytype3(Object anytype3) {
     this.anytype3 = anytype3;
   }
 
 
+  /**
+   * Return true if this AdditionalPropertiesClass object is equal to o.
+   */
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {

@@ -33,7 +33,7 @@ import javax.validation.Valid;
 @JsonPropertyOrder({
   AdditionalPropertiesBoolean.JSON_PROPERTY_NAME
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AdditionalPropertiesBoolean extends HashMap<String, Boolean> {
   public static final String JSON_PROPERTY_NAME = "name";
   private String name;
@@ -57,7 +57,6 @@ public class AdditionalPropertiesBoolean extends HashMap<String, Boolean> {
   public String getName() {
     return name;
   }
-
 
 
   public void setName(String name) {

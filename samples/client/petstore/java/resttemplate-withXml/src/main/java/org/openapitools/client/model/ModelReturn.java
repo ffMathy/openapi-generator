@@ -32,13 +32,13 @@ import javax.xml.bind.annotation.*;
 @JsonPropertyOrder({
   ModelReturn.JSON_PROPERTY_RETURN
 })
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 @XmlRootElement(name = "Return")
 @XmlAccessorType(XmlAccessType.FIELD)
 @JacksonXmlRootElement(localName = "Return")
 public class ModelReturn {
-  @XmlElement(name = "return")
   public static final String JSON_PROPERTY_RETURN = "return";
+  @XmlElement(name = "return")
   private Integer _return;
 
 
@@ -61,7 +61,6 @@ public class ModelReturn {
   public Integer getReturn() {
     return _return;
   }
-
 
 
   public void setReturn(Integer _return) {

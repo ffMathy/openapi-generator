@@ -26,11 +26,14 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
+import org.hibernate.validator.constraints.*;
 
 /**
  * TypeHolderExample
  */
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class TypeHolderExample {
   public static final String SERIALIZED_NAME_STRING_ITEM = "string_item";
   @SerializedName(SERIALIZED_NAME_STRING_ITEM)
@@ -67,12 +70,12 @@ public class TypeHolderExample {
    * Get stringItem
    * @return stringItem
   **/
+  @NotNull
   @ApiModelProperty(example = "what", required = true, value = "")
 
   public String getStringItem() {
     return stringItem;
   }
-
 
 
   public void setStringItem(String stringItem) {
@@ -90,12 +93,13 @@ public class TypeHolderExample {
    * Get numberItem
    * @return numberItem
   **/
+  @NotNull
+  @Valid
   @ApiModelProperty(example = "1.234", required = true, value = "")
 
   public BigDecimal getNumberItem() {
     return numberItem;
   }
-
 
 
   public void setNumberItem(BigDecimal numberItem) {
@@ -113,12 +117,12 @@ public class TypeHolderExample {
    * Get floatItem
    * @return floatItem
   **/
+  @NotNull
   @ApiModelProperty(example = "1.234", required = true, value = "")
 
   public Float getFloatItem() {
     return floatItem;
   }
-
 
 
   public void setFloatItem(Float floatItem) {
@@ -136,12 +140,12 @@ public class TypeHolderExample {
    * Get integerItem
    * @return integerItem
   **/
+  @NotNull
   @ApiModelProperty(example = "-2", required = true, value = "")
 
   public Integer getIntegerItem() {
     return integerItem;
   }
-
 
 
   public void setIntegerItem(Integer integerItem) {
@@ -159,12 +163,12 @@ public class TypeHolderExample {
    * Get boolItem
    * @return boolItem
   **/
+  @NotNull
   @ApiModelProperty(example = "true", required = true, value = "")
 
   public Boolean isBoolItem() {
     return boolItem;
   }
-
 
 
   public void setBoolItem(Boolean boolItem) {
@@ -187,12 +191,12 @@ public class TypeHolderExample {
    * Get arrayItem
    * @return arrayItem
   **/
+  @NotNull
   @ApiModelProperty(example = "[0, 1, 2, 3]", required = true, value = "")
 
   public List<Integer> getArrayItem() {
     return arrayItem;
   }
-
 
 
   public void setArrayItem(List<Integer> arrayItem) {
